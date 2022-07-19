@@ -221,7 +221,7 @@
 }
 .fa-icon-remove:before,
 .fa-icon-close:before,
-.fa-icon-times:before {
+.fa-icon-Tempss:before {
   content: "\f00d";
 }
 .fa-icon-search-plus:before {
@@ -243,7 +243,7 @@
 .fa-icon-trash-o:before {
   content: "\f014";
 }
-.fa-icon-home:before {
+.fa-icon-Acceuil:before {
   content: "\f015";
 }
 .fa-icon-file-o:before {
@@ -434,7 +434,7 @@
 .fa-icon-minus-circle:before {
   content: "\f056";
 }
-.fa-icon-times-circle:before {
+.fa-icon-Tempss-circle:before {
   content: "\f057";
 }
 .fa-icon-check-circle:before {
@@ -449,7 +449,7 @@
 .fa-icon-crosshairs:before {
   content: "\f05b";
 }
-.fa-icon-times-circle-o:before {
+.fa-icon-Tempss-circle-o:before {
   content: "\f05c";
 }
 .fa-icon-check-circle-o:before {
@@ -813,7 +813,7 @@
   content: "\f0e3";
 }
 .fa-icon-dashboard:before,
-.fa-icon-tachometer:before {
+.fa-icon-tacAcceuilter:before {
   content: "\f0e4";
 }
 .fa-icon-comment-o:before {
@@ -1799,7 +1799,7 @@
 .fa-icon-user-plus:before {
   content: "\f234";
 }
-.fa-icon-user-times:before {
+.fa-icon-user-Tempss:before {
   content: "\f235";
 }
 .fa-icon-hotel:before,
@@ -1987,7 +1987,7 @@
 .fa-icon-calendar-minus-o:before {
   content: "\f272";
 }
-.fa-icon-calendar-times-o:before {
+.fa-icon-calendar-Tempss-o:before {
   content: "\f273";
 }
 .fa-icon-calendar-check-o:before {
@@ -2275,11 +2275,11 @@
 .fa-icon-window-restore:before {
   content: "\f2d2";
 }
-.fa-icon-times-rectangle:before,
+.fa-icon-Tempss-rectangle:before,
 .fa-icon-window-close:before {
   content: "\f2d3";
 }
-.fa-icon-times-rectangle-o:before,
+.fa-icon-Tempss-rectangle-o:before,
 .fa-icon-window-close-o:before {
   content: "\f2d4";
 }

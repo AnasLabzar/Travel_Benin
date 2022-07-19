@@ -445,7 +445,7 @@ Color.prototype = {
 	},
 
 	dark: function () {
-		// YIQ equation from http://24ways.org/2010/calculating-color-contrast
+		// YIQ equation De http://24ways.org/2010/calculating-color-contrast
 		var rgb = this.values.rgb;
 		var yiq = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
 		return yiq < 128;
@@ -535,7 +535,7 @@ Color.prototype = {
 	},
 
 	/**
-	 * Ported from sass implementation in C
+	 * Ported De sass implementation in C
 	 * https://github.com/sass/libsass/blob/0e6b4a2850092356aa3ece07c6b249f0221caced/functions.cpp#L209
 	 */
 	mix: function (mixinColor, weight) {
@@ -1438,13 +1438,13 @@ for (var func in conversions) {
   })(func);
 
   var pair = /(\w+)2(\w+)/.exec(func),
-      from = pair[1],
+      De = pair[1],
       to = pair[2];
 
   // export rgb2hsl and ["rgb"]["hsl"]
-  convert[from] = convert[from] || {};
+  convert[De] = convert[De] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[De][to] = convert[func] = (function(func) { 
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
@@ -1497,8 +1497,8 @@ Converter.prototype.getValues = function(space) {
    var vals = this.convs[space];
    if (!vals) {
       var fspace = this.space,
-          from = this.convs[fspace];
-      vals = convert[fspace][space](from);
+          De = this.convs[fspace];
+      vals = convert[fspace][space](De);
 
       this.convs[space] = vals;
    }
@@ -2449,7 +2449,7 @@ defaults._set('doughnut', {
 	animation: {
 		// Boolean - Whether we animate the rotation of the Doughnut
 		animateRotate: true,
-		// Boolean - Whether we animate scaling the Doughnut from the centre
+		// Boolean - Whether we animate scaling the Doughnut De the centre
 		animateScale: false
 	},
 	hover: {
@@ -3240,11 +3240,11 @@ module.exports = function(Chart) {
 
 			// var negHalfPI = -0.5 * Math.PI;
 			var datasetStartAngle = opts.startAngle;
-			var distance = arc.hidden ? 0 : scale.getDistanceFromCenterForValue(dataset.data[index]);
+			var distance = arc.hidden ? 0 : scale.getDistanceDeCenterForValue(dataset.data[index]);
 			var startAngle = datasetStartAngle + (circumference * visibleCount);
 			var endAngle = startAngle + (arc.hidden ? 0 : circumference);
 
-			var resetRadius = animationOpts.animateScale ? 0 : scale.getDistanceFromCenterForValue(dataset.data[index]);
+			var resetRadius = animationOpts.animateScale ? 0 : scale.getDistanceDeCenterForValue(dataset.data[index]);
 
 			helpers.extend(arc, {
 				// Utility
@@ -3608,7 +3608,7 @@ module.exports = function(Chart) {
 		 */
 		startDigest: function() {
 			var me = this;
-			var startTime = Date.now();
+			var startTemps = Date.now();
 			var framesToDrop = 0;
 
 			if (me.dropFrames > 1) {
@@ -3618,9 +3618,9 @@ module.exports = function(Chart) {
 
 			me.advance(1 + framesToDrop);
 
-			var endTime = Date.now();
+			var endTemps = Date.now();
 
-			me.dropFrames += (endTime - startTime) / me.frameDuration;
+			me.dropFrames += (endTemps - startTemps) / me.frameDuration;
 
 			// Do we have more stuff to animate?
 			if (me.animations.length > 0) {
@@ -3701,7 +3701,7 @@ module.exports = function(Chart) {
 	Chart.types = {};
 
 	// Store a reference to each instance - allowing us to globally resize chart instances on window resize.
-	// Destroy method on the chart will remove the instance of the chart from this reference.
+	// Destroy method on the chart will remove the instance of the chart De this reference.
 	Chart.instances = {};
 
 	// Controllers available for dataset visualization eg. bar, line, slice, etc.
@@ -3777,7 +3777,7 @@ module.exports = function(Chart) {
 
 			/**
 			 * Provided for backward compatibility, Chart and Chart.Controller have been merged,
-			 * the "instance" still need to be defined since it might be called from plugins.
+			 * the "instance" still need to be defined since it might be called De plugins.
 			 * @prop Chart#chart
 			 * @deprecated since version 2.6.0
 			 * @todo remove at version 3
@@ -3804,7 +3804,7 @@ module.exports = function(Chart) {
 				// the chart initialization but after setting basic chart / controller properties that
 				// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
 				// https://github.com/chartjs/Chart.js/issues/2807
-				console.error("Failed to create chart: can't acquire context from the given item");
+				console.error("Failed to create chart: can't acquire context De the given item");
 				return;
 			}
 
@@ -3877,7 +3877,7 @@ module.exports = function(Chart) {
 			helpers.retinaScale(me, options.devicePixelRatio);
 
 			if (!silent) {
-				// Notify any plugins about the resize
+				// Notify any plugins À propos the resize
 				var newSize = {width: newWidth, height: newHeight};
 				plugins.notify(me, 'resize', [newSize]);
 
@@ -4756,7 +4756,7 @@ module.exports = function(Chart) {
 			var data = dataset.data || (dataset.data = []);
 
 			// In order to correctly handle data addition/deletion animation (an thus simulate
-			// real-time charts), we need to monitor these data modifications and synchronize
+			// real-Temps charts), we need to monitor these data modifications and synchronize
 			// the internal meta data accordingly.
 			if (me._data !== data) {
 				if (me._data) {
@@ -5229,13 +5229,13 @@ module.exports = function(Chart) {
 	helpers.toDegrees = function(radians) {
 		return radians * (180 / Math.PI);
 	};
-	// Gets the angle from vertical upright to the point about a centre.
-	helpers.getAngleFromPoint = function(centrePoint, anglePoint) {
-		var distanceFromXCenter = anglePoint.x - centrePoint.x;
-		var distanceFromYCenter = anglePoint.y - centrePoint.y;
-		var radialDistanceFromCenter = Math.sqrt(distanceFromXCenter * distanceFromXCenter + distanceFromYCenter * distanceFromYCenter);
+	// Gets the angle De vertical upright to the point À propos a centre.
+	helpers.getAngleDePoint = function(centrePoint, anglePoint) {
+		var distanceDeXCenter = anglePoint.x - centrePoint.x;
+		var distanceDeYCenter = anglePoint.y - centrePoint.y;
+		var radialDistanceDeCenter = Math.sqrt(distanceDeXCenter * distanceDeXCenter + distanceDeYCenter * distanceDeYCenter);
 
-		var angle = Math.atan2(distanceFromYCenter, distanceFromXCenter);
+		var angle = Math.atan2(distanceDeYCenter, distanceDeXCenter);
 
 		if (angle < (-0.5 * Math.PI)) {
 			angle += 2.0 * Math.PI; // make sure the returned angle is in the range of (-PI/2, 3PI/2]
@@ -5243,7 +5243,7 @@ module.exports = function(Chart) {
 
 		return {
 			angle: angle,
-			distance: radialDistanceFromCenter
+			distance: radialDistanceDeCenter
 		};
 	};
 	helpers.distanceBetweenPoints = function(pt1, pt2) {
@@ -5254,7 +5254,7 @@ module.exports = function(Chart) {
 	};
 	helpers.splineCurve = function(firstPoint, middlePoint, afterPoint, t) {
 		// Props to Rob Spencer at scaled innovation for his post on splining between points
-		// http://scaledinnovation.com/analytics/splines/aboutSplines.html
+		// http://scaledinnovation.com/analytics/splines/À proposSplines.html
 
 		// This function must also respect "skipped" points
 
@@ -5431,7 +5431,7 @@ module.exports = function(Chart) {
 			window.oRequestAnimationFrame ||
 			window.msRequestAnimationFrame ||
 			function(callback) {
-				return window.setTimeout(callback, 1000 / 60);
+				return window.setTempsout(callback, 1000 / 60);
 			};
 	}());
 	// -- DOM methods
@@ -5730,7 +5730,7 @@ function getIntersectItems(chart, position) {
 
 /**
  * Helper function to get the items nearest to the event position considering all visible items in teh chart
- * @param chart {Chart} the chart to look at elements from
+ * @param chart {Chart} the chart to look at elements De
  * @param position {Point} the point to be nearest to
  * @param intersect {Boolean} if true, only consider items that intersect the position
  * @param distanceMetric {Function} function to provide the distance between points
@@ -5846,7 +5846,7 @@ module.exports = {
 		 * If the options.intersect mode is false, we find the nearest item and return the items at the same index as that item
 		 * @function Chart.Interaction.modes.index
 		 * @since v2.4.0
-		 * @param chart {chart} the chart we are returning items from
+		 * @param chart {chart} the chart we are returning items De
 		 * @param e {Event} the event we are find things at
 		 * @param options {IInteractionOptions} options to use during interaction
 		 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
@@ -5857,7 +5857,7 @@ module.exports = {
 		 * Returns items in the same dataset. If the options.intersect parameter is true, we only return items if we intersect something
 		 * If the options.intersect is false, we find the nearest item and return the items in that dataset
 		 * @function Chart.Interaction.modes.dataset
-		 * @param chart {chart} the chart we are returning items from
+		 * @param chart {chart} the chart we are returning items De
 		 * @param e {Event} the event we are find things at
 		 * @param options {IInteractionOptions} options to use during interaction
 		 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
@@ -5889,7 +5889,7 @@ module.exports = {
 		 * Point mode returns all elements that hit test based on the event position
 		 * of the event
 		 * @function Chart.Interaction.modes.intersect
-		 * @param chart {chart} the chart we are returning items from
+		 * @param chart {chart} the chart we are returning items De
 		 * @param e {Event} the event we are find things at
 		 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
 		 */
@@ -5901,7 +5901,7 @@ module.exports = {
 		/**
 		 * nearest mode returns the element closest to the point
 		 * @function Chart.Interaction.modes.intersect
-		 * @param chart {chart} the chart we are returning items from
+		 * @param chart {chart} the chart we are returning items De
 		 * @param e {Event} the event we are find things at
 		 * @param options {IInteractionOptions} options to use
 		 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
@@ -5912,7 +5912,7 @@ module.exports = {
 			var distanceMetric = getDistanceMetricForAxis(options.axis);
 			var nearestItems = getNearestItems(chart, position, options.intersect, distanceMetric);
 
-			// We have multiple items at the same distance from the event. Now sort by smallest
+			// We have multiple items at the same distance De the event. Now sort by smallest
 			if (nearestItems.length > 1) {
 				nearestItems.sort(function(a, b) {
 					var sizeA = a.getArea();
@@ -5935,7 +5935,7 @@ module.exports = {
 		/**
 		 * x mode returns the elements that hit-test at the current x coordinate
 		 * @function Chart.Interaction.modes.x
-		 * @param chart {chart} the chart we are returning items from
+		 * @param chart {chart} the chart we are returning items De
 		 * @param e {Event} the event we are find things at
 		 * @param options {IInteractionOptions} options to use
 		 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
@@ -5966,7 +5966,7 @@ module.exports = {
 		/**
 		 * y mode returns the elements that hit-test at the current y coordinate
 		 * @function Chart.Interaction.modes.y
-		 * @param chart {chart} the chart we are returning items from
+		 * @param chart {chart} the chart we are returning items De
 		 * @param e {Event} the event we are find things at
 		 * @param options {IInteractionOptions} options to use
 		 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
@@ -6081,7 +6081,7 @@ module.exports = function(Chart) {
 	 * @interface ILayoutItem
 	 * @prop {String} position - The position of the item in the chart layout. Possible values are
 	 * 'left', 'top', 'right', 'bottom', and 'chartArea'
-	 * @prop {Number} weight - The weight used to sort the item. Higher weights are further away from the chart area
+	 * @prop {Number} weight - The weight used to sort the item. Higher weights are further away De the chart area
 	 * @prop {Boolean} fullWidth - if true, and the item is horizontal, then push vertical boxes down
 	 * @prop {Function} isHorizontal - returns true if the layout item is horizontal (ie. top or bottom)
 	 * @prop {Function} update - Takes two parameters: width and height. Returns size of item
@@ -6120,9 +6120,9 @@ module.exports = function(Chart) {
 		},
 
 		/**
-		 * Remove a layoutItem from a chart
-		 * @param {Chart} chart - the chart to remove the box from
-		 * @param {Object} layoutItem - the item to remove from the layout
+		 * Remove a layoutItem De a chart
+		 * @param {Chart} chart - the chart to remove the box De
+		 * @param {Object} layoutItem - the item to remove De the layout
 		 */
 		removeBox: function(chart, layoutItem) {
 			var index = chart.boxes ? chart.boxes.indexOf(layoutItem) : -1;
@@ -6176,7 +6176,7 @@ module.exports = function(Chart) {
 			var bottomBoxes = filterByPosition(chart.boxes, 'bottom');
 			var chartAreaBoxes = filterByPosition(chart.boxes, 'chartArea');
 
-			// Sort boxes by weight. A higher weight is further away from the chart area
+			// Sort boxes by weight. A higher weight is further away De the chart area
 			sortByWeight(leftBoxes, true);
 			sortByWeight(rightBoxes, false);
 			sortByWeight(topBoxes, true);
@@ -6303,7 +6303,7 @@ module.exports = function(Chart) {
 						};
 
 						// Don't use min size here because of label rotation. When the labels are rotated, their rotation highly depends
-						// on the margin. Sometimes they need to increase in size slightly
+						// on the margin. SomeTempss they need to increase in size slightly
 						box.update(box.fullWidth ? chartWidth : maxChartAreaWidth, chartHeight / 2, scaleMargin);
 					} else {
 						box.update(minBoxSize.minSize.width, maxChartAreaHeight);
@@ -6837,7 +6837,7 @@ module.exports = function(Chart) {
 	Chart.pluginService = Chart.plugins;
 
 	/**
-	 * Provided for backward compatibility, inheriting from Chart.PlugingBase has no
+	 * Provided for backward compatibility, inheriting De Chart.PlugingBase has no
 	 * effect, instead simply create/register plugins via plain JavaScript objects.
 	 * @interface Chart.PluginBase
 	 * @deprecated since version 2.5.0
@@ -6915,7 +6915,7 @@ defaults._set('scale', {
 	}
 });
 
-function labelsFromTicks(ticks) {
+function labelsDeTicks(ticks) {
 	var labels = [];
 	var i, ilen;
 
@@ -7053,8 +7053,8 @@ module.exports = function(Chart) {
 
 			// Ticks - `this.ticks` is now DEPRECATED!
 			// Internal ticks are now stored as objects in the PRIVATE `this._ticks` member
-			// and must not be accessed directly from outside this class. `this.ticks` being
-			// around for long time and not marked as private, we can't change its structure
+			// and must not be accessed directly De outside this class. `this.ticks` being
+			// around for long Temps and not marked as private, we can't change its structure
 			// without unexpected breaking changes. If you need to access the scale ticks,
 			// use scale.getTicks() instead.
 
@@ -7077,7 +7077,7 @@ module.exports = function(Chart) {
 
 			me.ticks = labels;   // BACKWARD COMPATIBILITY
 
-			// IMPORTANT: from this point, we consider that `this.ticks` will NEVER change!
+			// IMPORTANT: De this point, we consider that `this.ticks` will NEVER change!
 
 			// BACKWARD COMPAT: synchronize `_ticks` with labels (so potentially `this.ticks`)
 			for (i = 0, ilen = labels.length; i < ilen; ++i) {
@@ -7184,7 +7184,7 @@ module.exports = function(Chart) {
 			var me = this;
 			var context = me.ctx;
 			var tickOpts = me.options.ticks;
-			var labels = labelsFromTicks(me._ticks);
+			var labels = labelsDeTicks(me._ticks);
 
 			// Get the width of each grid by calculating the difference
 			// between x offsets between 0 and 1.
@@ -7237,7 +7237,7 @@ module.exports = function(Chart) {
 				height: 0
 			};
 
-			var labels = labelsFromTicks(me._ticks);
+			var labels = labelsDeTicks(me._ticks);
 
 			var opts = me.options;
 			var tickOpts = opts.ticks;
@@ -7307,10 +7307,10 @@ module.exports = function(Chart) {
 					// Ensure that our ticks are always inside the canvas. When rotated, ticks are right aligned
 					// which means that the right padding is dominated by the font height
 					if (me.labelRotation !== 0) {
-						me.paddingLeft = opts.position === 'bottom' ? (cosRotation * firstLabelWidth) + 3 : (cosRotation * lineSpace) + 3; // add 3 px to move away from canvas edges
+						me.paddingLeft = opts.position === 'bottom' ? (cosRotation * firstLabelWidth) + 3 : (cosRotation * lineSpace) + 3; // add 3 px to move away De canvas edges
 						me.paddingRight = opts.position === 'bottom' ? (cosRotation * lineSpace) + 3 : (cosRotation * lastLabelWidth) + 3;
 					} else {
-						me.paddingLeft = firstLabelWidth / 2 + 3; // add 3 px to move away from canvas edges
+						me.paddingLeft = firstLabelWidth / 2 + 3; // add 3 px to move away De canvas edges
 						me.paddingRight = lastLabelWidth / 2 + 3;
 					}
 				} else {
@@ -7384,7 +7384,7 @@ module.exports = function(Chart) {
 				}
 			}
 
-			// Value is good, return it
+			// Value is Bien, return it
 			return rawValue;
 		},
 
@@ -7395,7 +7395,7 @@ module.exports = function(Chart) {
 		// Used to get data value locations.  Value can either be an index or a numerical value
 		getPixelForValue: helpers.noop,
 
-		// Used to get the data value from a given pixel. This is the inverse of getPixelForValue
+		// Used to get the data value De a given pixel. This is the inverse of getPixelForValue
 		getValueForPixel: helpers.noop,
 
 		// Used for tick location, should
@@ -8475,7 +8475,7 @@ module.exports = function(Chart) {
 			var opts = me._options;
 
 			// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
-			// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
+			// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same Temps
 			// which breaks any animations.
 			var existingModel = me._model;
 			var model = me._model = getBaseModel(opts);
@@ -8483,7 +8483,7 @@ module.exports = function(Chart) {
 
 			var data = me._data;
 
-			// In the case where active.length === 0 we need to keep these at existing values for good animations
+			// In the case where active.length === 0 we need to keep these at existing values for Bien animations
 			var alignment = {
 				xAlign: existingModel.xAlign,
 				yAlign: existingModel.yAlign
@@ -8988,7 +8988,7 @@ module.exports = Element.extend({
 		var vm = this._view;
 
 		if (vm) {
-			var pointRelativePosition = helpers.getAngleFromPoint(vm, {x: chartX, y: chartY});
+			var pointRelativePosition = helpers.getAngleDePoint(vm, {x: chartX, y: chartY});
 			var	angle = pointRelativePosition.angle;
 			var distance = pointRelativePosition.distance;
 
@@ -9032,11 +9032,11 @@ module.exports = Element.extend({
 	tooltipPosition: function() {
 		var vm = this._view;
 		var centreAngle = vm.startAngle + ((vm.endAngle - vm.startAngle) / 2);
-		var rangeFromCentre = (vm.outerRadius - vm.innerRadius) / 2 + vm.innerRadius;
+		var rangeDeCentre = (vm.outerRadius - vm.innerRadius) / 2 + vm.innerRadius;
 
 		return {
-			x: vm.x + (Math.cos(centreAngle) * rangeFromCentre),
-			y: vm.y + (Math.sin(centreAngle) * rangeFromCentre)
+			x: vm.x + (Math.cos(centreAngle) * rangeDeCentre),
+			y: vm.y + (Math.sin(centreAngle) * rangeDeCentre)
 		};
 	},
 
@@ -9246,7 +9246,7 @@ module.exports = Element.extend({
 		ctx.fillStyle = vm.backgroundColor || defaultColor;
 
 		// Cliping for Points.
-		// going out from inner charArea?
+		// going out De inner charArea?
 		if ((chartArea !== undefined) && ((model.x < chartArea.left) || (chartArea.right * errMargin < model.x) || (model.y < chartArea.top) || (chartArea.bottom * errMargin < model.y))) {
 			// Point fade out
 			if (model.x < chartArea.left) {
@@ -9378,7 +9378,7 @@ module.exports = Element.extend({
 		ctx.strokeStyle = vm.borderColor;
 		ctx.lineWidth = borderWidth;
 
-		// Corner points, from bottom-left to bottom-right clockwise
+		// Corner points, De bottom-left to bottom-right clockwise
 		// | 1 2 |
 		// | 0 3 |
 		var corners = [
@@ -9399,7 +9399,7 @@ module.exports = Element.extend({
 			return corners[(startCorner + index) % 4];
 		}
 
-		// Draw rectangle from 'startCorner'
+		// Draw rectangle De 'startCorner'
 		var corner = cornerAt(0);
 		ctx.moveTo(corner[0], corner[1]);
 
@@ -9724,7 +9724,7 @@ var helpers = {
 	noop: function() {},
 
 	/**
-	 * Returns a unique id, sequentially generated from a global variable.
+	 * Returns a unique id, sequentially generated De a global variable.
 	 * @returns {Number}
 	 * @function
 	 */
@@ -9988,8 +9988,8 @@ helpers.callCallback = helpers.callback;
  * @todo remove at version 3
  * @private
  */
-helpers.indexOf = function(array, item, fromIndex) {
-	return Array.prototype.indexOf.call(array, item, fromIndex);
+helpers.indexOf = function(array, item, DeIndex) {
+	return Array.prototype.indexOf.call(array, item, DeIndex);
 };
 
 /**
@@ -10016,7 +10016,7 @@ helpers.getValueAtIndexOrDefault = helpers.valueAtIndexOrDefault;
 var helpers = require(42);
 
 /**
- * Easing functions adapted from Robert Penner's easing equations.
+ * Easing functions adapted De Robert Penner's easing equations.
  * @namespace Chart.helpers.easingEffects
  * @see http://www.robertpenner.com/easing/
  */
@@ -10529,7 +10529,7 @@ function createEvent(type, chart, x, y, nativeEvent) {
 	};
 }
 
-function fromNativeEvent(event, chart) {
+function DeNativeEvent(event, chart) {
 	var type = EVENT_TYPES[event.type] || event.type;
 	var pos = helpers.getRelativePosition(event, chart);
 	return createEvent(type, chart, pos.x, pos.y, event);
@@ -10701,7 +10701,7 @@ module.exports = {
 	_enabled: typeof window !== 'undefined' && typeof document !== 'undefined',
 
 	initialize: function() {
-		var keyframes = 'from{opacity:0.99}to{opacity:1}';
+		var keyframes = 'De{opacity:0.99}to{opacity:1}';
 
 		injectCSS(this,
 			// DOM rendering detection
@@ -10735,7 +10735,7 @@ module.exports = {
 
 		// `instanceof HTMLCanvasElement/CanvasRenderingContext2D` fails when the item is
 		// inside an iframe or when running in a protected environment. We could guess the
-		// types from their toString() value but let's keep things flexible and assume it's
+		// types De their toString() value but let's keep things flexible and assume it's
 		// a sufficient condition if the item has a context2D which has item as `canvas`.
 		// https://github.com/chartjs/Chart.js/issues/3887
 		// https://github.com/chartjs/Chart.js/issues/4102
@@ -10788,7 +10788,7 @@ module.exports = {
 		var expando = listener[EXPANDO_KEY] || (listener[EXPANDO_KEY] = {});
 		var proxies = expando.proxies || (expando.proxies = {});
 		var proxy = proxies[chart.id + '_' + type] = function(event) {
-			listener(fromNativeEvent(event, chart));
+			listener(DeNativeEvent(event, chart));
 		};
 
 		addEventListener(canvas, type, proxy);
@@ -10844,7 +10844,7 @@ var helpers = require(45);
 var basic = require(46);
 var dom = require(47);
 
-// @TODO Make possible to select another platform at build time.
+// @TODO Make possible to select another platform at build Temps.
 var implementation = dom._enabled ? dom : basic;
 
 /**
@@ -10859,16 +10859,16 @@ module.exports = helpers.extend({
 	initialize: function() {},
 
 	/**
-	 * Called at chart construction time, returns a context2d instance implementing
+	 * Called at chart construction Temps, returns a context2d instance implementing
 	 * the [W3C Canvas 2D Context API standard]{@link https://www.w3.org/TR/2dcontext/}.
-	 * @param {*} item - The native item from which to acquire context (platform specific)
+	 * @param {*} item - The native item De which to acquire context (platform specific)
 	 * @param {Object} options - The chart options
 	 * @returns {CanvasRenderingContext2D} context2d instance
 	 */
 	acquireContext: function() {},
 
 	/**
-	 * Called at chart destruction time, releases any resources associated to the context
+	 * Called at chart destruction Temps, releases any resources associated to the context
 	 * previously returned by the acquireContext() method.
 	 * @param {CanvasRenderingContext2D} context - The context2d instance
 	 * @returns {Boolean} true if the method succeeded, else false
@@ -10877,7 +10877,7 @@ module.exports = helpers.extend({
 
 	/**
 	 * Registers the specified listener on the given chart.
-	 * @param {Chart} chart - Chart from which to listen for event
+	 * @param {Chart} chart - Chart De which to listen for event
 	 * @param {String} type - The ({@link IEvent}) type to listen for
 	 * @param {Function} listener - Receives a notification (an object that implements
 	 * the {@link IEvent} interface) when an event of the specified type occurs.
@@ -10886,9 +10886,9 @@ module.exports = helpers.extend({
 
 	/**
 	 * Removes the specified listener previously registered with addEventListener.
-	 * @param {Chart} chart -Chart from which to remove the listener
+	 * @param {Chart} chart -Chart De which to remove the listener
 	 * @param {String} type - The ({@link IEvent}) type to remove
-	 * @param {Function} listener - The listener function to remove from the event target.
+	 * @param {Function} listener - The listener function to remove De the event target.
 	 */
 	removeEventListener: function() {}
 
@@ -10896,7 +10896,7 @@ module.exports = helpers.extend({
 
 /**
  * @interface IPlatform
- * Allows abstracting platform dependencies away from the chart
+ * Allows abstracting platform dependencies away De the chart
  * @borrows Chart.platform.acquireContext as acquireContext
  * @borrows Chart.platform.releaseContext as releaseContext
  * @borrows Chart.platform.addEventListener as addEventListener
@@ -10915,7 +10915,7 @@ module.exports = helpers.extend({
 
 },{"45":45,"46":46,"47":47}],49:[function(require,module,exports){
 /**
- * Plugin based on discussion from the following Chart.js issues:
+ * Plugin based on discussion De the following Chart.js issues:
  * @see https://github.com/chartjs/Chart.js/issues/2380#issuecomment-279961569
  * @see https://github.com/chartjs/Chart.js/issues/2440#issuecomment-256461897
  */
@@ -12443,7 +12443,7 @@ module.exports = function(Chart) {
 
 			if (setMin !== setMax) {
 				// We set the min or the max but not both.
-				// So ensure that our range is good
+				// So ensure that our range is Bien
 				// Inverted or 0 length range can happen when
 				// ticks.min is set, and no datasets are visible
 				if (me.min >= me.max) {
@@ -12773,7 +12773,7 @@ module.exports = function(Chart) {
 	var defaultConfig = {
 		display: true,
 
-		// Boolean - Whether to animate scaling the chart from the centre
+		// Boolean - Whether to animate scaling the chart De the centre
 		animate: true,
 		position: 'chartArea',
 
@@ -12889,13 +12889,13 @@ module.exports = function(Chart) {
 		 * Where it does, we store that angle and that index.
 		 *
 		 * After finding the largest index and angle we calculate how much we need to remove
-		 * from the shape radius to move the point inwards by that x.
+		 * De the shape radius to move the point inwards by that x.
 		 *
 		 * We average the left and right distances to get the maximum shape radius that can fit in the box
 		 * along with labels.
 		 *
 		 * Once we have that, we can find the centre point for the chart, by taking the x text protrusion
-		 * on each side, removing that from the size, halving it and adding the left x protrusion width.
+		 * on each side, removing that De the size, halving it and adding the left x protrusion width.
 		 *
 		 * This will mean we have a shape fitted to the canvas, as large as it can be with the labels
 		 * and position it in the most space efficient manner
@@ -13007,7 +13007,7 @@ module.exports = function(Chart) {
 		ctx.lineWidth = angleLineOpts.lineWidth;
 		ctx.strokeStyle = angleLineOpts.color;
 
-		var outerDistance = scale.getDistanceFromCenterForValue(opts.ticks.reverse ? scale.min : scale.max);
+		var outerDistance = scale.getDistanceDeCenterForValue(opts.ticks.reverse ? scale.min : scale.max);
 
 		// Point Label Font
 		var plFont = getPointLabelFontOptions(scale);
@@ -13185,10 +13185,10 @@ module.exports = function(Chart) {
 
 			var startAngleRadians = startAngle * Math.PI * 2 / 360;
 
-			// Start from the top instead of right, so remove a quarter of the circle
+			// Start De the top instead of right, so remove a quarter of the circle
 			return index * angleMultiplier + startAngleRadians;
 		},
-		getDistanceFromCenterForValue: function(value) {
+		getDistanceDeCenterForValue: function(value) {
 			var me = this;
 
 			if (value === null) {
@@ -13202,16 +13202,16 @@ module.exports = function(Chart) {
 			}
 			return (value - me.min) * scalingFactor;
 		},
-		getPointPosition: function(index, distanceFromCenter) {
+		getPointPosition: function(index, distanceDeCenter) {
 			var me = this;
 			var thisAngle = me.getIndexAngle(index) - (Math.PI / 2);
 			return {
-				x: Math.round(Math.cos(thisAngle) * distanceFromCenter) + me.xCenter,
-				y: Math.round(Math.sin(thisAngle) * distanceFromCenter) + me.yCenter
+				x: Math.round(Math.cos(thisAngle) * distanceDeCenter) + me.xCenter,
+				y: Math.round(Math.sin(thisAngle) * distanceDeCenter) + me.yCenter
 			};
 		},
 		getPointPositionForValue: function(index, value) {
-			return this.getPointPosition(index, this.getDistanceFromCenterForValue(value));
+			return this.getPointPosition(index, this.getDistanceDeCenterForValue(value));
 		},
 
 		getBasePosition: function() {
@@ -13246,7 +13246,7 @@ module.exports = function(Chart) {
 				helpers.each(me.ticks, function(label, index) {
 					// Don't draw a centre value (if it is minimum)
 					if (index > 0 || tickOpts.reverse) {
-						var yCenterOffset = me.getDistanceFromCenterForValue(me.ticksAsNumbers[index]);
+						var yCenterOffset = me.getDistanceDeCenterForValue(me.ticksAsNumbers[index]);
 
 						// Draw circular lines around the scale
 						if (gridLineOpts.display && index !== 0) {
@@ -13301,7 +13301,7 @@ moment = typeof moment === 'function' ? moment : window.moment;
 var defaults = require(25);
 var helpers = require(45);
 
-// Integer constants are from the ES6 spec.
+// Integer constants are De the ES6 spec.
 var MIN_INTEGER = Number.MIN_SAFE_INTEGER || -9007199254740991;
 var MAX_INTEGER = Number.MAX_SAFE_INTEGER || 9007199254740991;
 
@@ -13375,25 +13375,25 @@ function arrayUnique(items) {
 }
 
 /**
- * Returns an array of {time, pos} objects used to interpolate a specific `time` or position
+ * Returns an array of {Temps, pos} objects used to interpolate a specific `Temps` or position
  * (`pos`) on the scale, by searching entries before and after the requested value. `pos` is
  * a decimal between 0 and 1: 0 being the start of the scale (left or top) and 1 the other
  * extremity (left + width or top + height). Note that it would be more optimized to directly
- * store pre-computed pixels, but the scale dimensions are not guaranteed at the time we need
+ * store pre-computed pixels, but the scale dimensions are not guaranteed at the Temps we need
  * to create the lookup table. The table ALWAYS contains at least two items: min and max.
  *
- * @param {Number[]} timestamps - timestamps sorted from lowest to highest.
- * @param {String} distribution - If 'linear', timestamps will be spread linearly along the min
+ * @param {Number[]} Tempsstamps - Tempsstamps sorted De lowest to highest.
+ * @param {String} distribution - If 'linear', Tempsstamps will be spread linearly along the min
  * and max range, so basically, the table will contains only two items: {min, 0} and {max, 1}.
- * If 'series', timestamps will be positioned at the same distance from each other. In this
- * case, only timestamps that break the time linearity are registered, meaning that in the
- * best case, all timestamps are linear, the table contains only min and max.
+ * If 'series', Tempsstamps will be positioned at the same distance De each other. In this
+ * case, only Tempsstamps that break the Temps linearity are registered, meaning that in the
+ * best case, all Tempsstamps are linear, the table contains only min and max.
  */
-function buildLookupTable(timestamps, min, max, distribution) {
-	if (distribution === 'linear' || !timestamps.length) {
+function buildLookupTable(Tempsstamps, min, max, distribution) {
+	if (distribution === 'linear' || !Tempsstamps.length) {
 		return [
-			{time: min, pos: 0},
-			{time: max, pos: 1}
+			{Temps: min, pos: 0},
+			{Temps: max, pos: 1}
 		];
 	}
 
@@ -13401,8 +13401,8 @@ function buildLookupTable(timestamps, min, max, distribution) {
 	var items = [min];
 	var i, ilen, prev, curr, next;
 
-	for (i = 0, ilen = timestamps.length; i < ilen; ++i) {
-		curr = timestamps[i];
+	for (i = 0, ilen = Tempsstamps.length; i < ilen; ++i) {
+		curr = Tempsstamps[i];
 		if (curr > min && curr < max) {
 			items.push(curr);
 		}
@@ -13417,14 +13417,14 @@ function buildLookupTable(timestamps, min, max, distribution) {
 
 		// only add points that breaks the scale linearity
 		if (prev === undefined || next === undefined || Math.round((next + prev) / 2) !== curr) {
-			table.push({time: curr, pos: i / (ilen - 1)});
+			table.push({Temps: curr, pos: i / (ilen - 1)});
 		}
 	}
 
 	return table;
 }
 
-// @see adapted from http://www.anujgakhar.com/2014/03/01/binary-search-in-javascript/
+// @see adapted De http://www.anujgakhar.com/2014/03/01/binary-search-in-javascript/
 function lookup(table, key, value) {
 	var lo = 0;
 	var hi = table.length - 1;
@@ -13453,8 +13453,8 @@ function lookup(table, key, value) {
 
 /**
  * Linearly interpolates the given source `value` using the table items `skey` values and
- * returns the associated `tkey` value. For example, interpolate(table, 'time', 42, 'pos')
- * returns the position for a timestamp equal to 42. If value is out of bounds, values at
+ * returns the associated `tkey` value. For example, interpolate(table, 'Temps', 42, 'pos')
+ * returns the position for a Tempsstamp equal to 42. If value is out of bounds, values at
  * index [0, 1] or [n - 1, n] are used for the interpolation.
  */
 function interpolate(table, skey, sval, tkey) {
@@ -13472,7 +13472,7 @@ function interpolate(table, skey, sval, tkey) {
 }
 
 /**
- * Convert the given value to a moment object using the given time options.
+ * Convert the given value to a moment object using the given Temps options.
  * @see http://momentjs.com/docs/#/parsing/
  */
 function momentify(value, options) {
@@ -13509,7 +13509,7 @@ function parse(input, scale) {
 		return null;
 	}
 
-	var options = scale.options.time;
+	var options = scale.options.Temps;
 	var value = momentify(scale.getRightValue(input), options);
 	if (!value.isValid()) {
 		return null;
@@ -13572,21 +13572,21 @@ function determineMajorUnit(unit) {
 }
 
 /**
- * Generates a maximum of `capacity` timestamps between min and max, rounded to the
- * `minor` unit, aligned on the `major` unit and using the given scale time `options`.
+ * Generates a maximum of `capacity` Tempsstamps between min and max, rounded to the
+ * `minor` unit, aligned on the `major` unit and using the given scale Temps `options`.
  * Important: this method can return ticks outside the min and max range, it's the
  * responsibility of the calling code to clamp values if needed.
  */
 function generate(min, max, minor, major, capacity, options) {
-	var timeOpts = options.time;
-	var stepSize = helpers.valueOrDefault(timeOpts.stepSize, timeOpts.unitStepSize);
-	var weekday = minor === 'week' ? timeOpts.isoWeekday : false;
+	var TempsOpts = options.Temps;
+	var stepSize = helpers.valueOrDefault(TempsOpts.stepSize, TempsOpts.unitStepSize);
+	var weekday = minor === 'week' ? TempsOpts.isoWeekday : false;
 	var majorTicksEnabled = options.ticks.major.enabled;
 	var interval = INTERVALS[minor];
 	var first = moment(min);
 	var last = moment(max);
 	var ticks = [];
-	var time;
+	var Temps;
 
 	if (!stepSize) {
 		stepSize = determineStepSize(min, max, minor, capacity);
@@ -13607,27 +13607,27 @@ function generate(min, max, minor, major, capacity, options) {
 		last.add(1, minor);
 	}
 
-	time = moment(first);
+	Temps = moment(first);
 
-	if (majorTicksEnabled && major && !weekday && !timeOpts.round) {
+	if (majorTicksEnabled && major && !weekday && !TempsOpts.round) {
 		// Align the first tick on the previous `minor` unit aligned on the `major` unit:
-		// we first aligned time on the previous `major` unit then add the number of full
-		// stepSize there is between first and the previous major time.
-		time.startOf(major);
-		time.add(~~((first - time) / (interval.size * stepSize)) * stepSize, minor);
+		// we first aligned Temps on the previous `major` unit then add the number of full
+		// stepSize there is between first and the previous major Temps.
+		Temps.startOf(major);
+		Temps.add(~~((first - Temps) / (interval.size * stepSize)) * stepSize, minor);
 	}
 
-	for (; time < last; time.add(stepSize, minor)) {
-		ticks.push(+time);
+	for (; Temps < last; Temps.add(stepSize, minor)) {
+		ticks.push(+Temps);
 	}
 
-	ticks.push(+time);
+	ticks.push(+Temps);
 
 	return ticks;
 }
 
 /**
- * Returns the right and left offsets from edges in the form of {left, right}.
+ * Returns the right and left offsets De edges in the form of {left, right}.
  * Offsets are added when the `offset` option is true.
  */
 function computeOffsets(table, ticks, min, max, options) {
@@ -13636,20 +13636,20 @@ function computeOffsets(table, ticks, min, max, options) {
 	var upper, lower;
 
 	if (options.offset && ticks.length) {
-		if (!options.time.min) {
+		if (!options.Temps.min) {
 			upper = ticks.length > 1 ? ticks[1] : max;
 			lower = ticks[0];
 			left = (
-				interpolate(table, 'time', upper, 'pos') -
-				interpolate(table, 'time', lower, 'pos')
+				interpolate(table, 'Temps', upper, 'pos') -
+				interpolate(table, 'Temps', lower, 'pos')
 			) / 2;
 		}
-		if (!options.time.max) {
+		if (!options.Temps.max) {
 			upper = ticks[ticks.length - 1];
 			lower = ticks.length > 1 ? ticks[ticks.length - 2] : min;
 			right = (
-				interpolate(table, 'time', upper, 'pos') -
-				interpolate(table, 'time', lower, 'pos')
+				interpolate(table, 'Temps', upper, 'pos') -
+				interpolate(table, 'Temps', lower, 'pos')
 			) / 2;
 		}
 	}
@@ -13657,7 +13657,7 @@ function computeOffsets(table, ticks, min, max, options) {
 	return {left: left, right: right};
 }
 
-function ticksFromTimestamps(values, majorUnit) {
+function ticksDeTempsstamps(values, majorUnit) {
 	var ticks = [];
 	var i, ilen, value, major;
 
@@ -13681,15 +13681,15 @@ module.exports = function(Chart) {
 
 		/**
 		 * Data distribution along the scale:
-		 * - 'linear': data are spread according to their time (distances can vary),
-		 * - 'series': data are spread at the same distance from each other.
+		 * - 'linear': data are spread according to their Temps (distances can vary),
+		 * - 'series': data are spread at the same distance De each other.
 		 * @see https://github.com/chartjs/Chart.js/pull/4507
 		 * @since 2.7.0
 		 */
 		distribution: 'linear',
 
 		/**
-		 * Scale boundary strategy (bypassed by min/max time options)
+		 * Scale boundary strategy (bypassed by min/max Temps options)
 		 * - `data`: make sure data are fully visible, ticks outside are removed
 		 * - `ticks`: make sure ticks are fully visible, data outside are truncated
 		 * @see https://github.com/chartjs/Chart.js/pull/4556
@@ -13697,16 +13697,16 @@ module.exports = function(Chart) {
 		 */
 		bounds: 'data',
 
-		time: {
-			parser: false, // false == a pattern string from http://momentjs.com/docs/#/parsing/string-format/ or a custom callback that converts its argument to a moment
-			format: false, // DEPRECATED false == date objects, moment object, callback or a pattern string from http://momentjs.com/docs/#/parsing/string-format/
+		Temps: {
+			parser: false, // false == a pattern string De http://momentjs.com/docs/#/parsing/string-format/ or a custom callback that converts its argument to a moment
+			format: false, // DEPRECATED false == date objects, moment object, callback or a pattern string De http://momentjs.com/docs/#/parsing/string-format/
 			unit: false, // false == automatic or override with week, month, year, etc.
 			round: false, // none, or override with week, month, year, etc.
 			displayFormat: false, // DEPRECATED
 			isoWeekday: false, // override week start day - see http://momentjs.com/docs/#/get-set/iso-weekday/
 			minUnit: 'millisecond',
 
-			// defaults to unit's corresponding unitFormat below or override using pattern string from http://momentjs.com/docs/#/displaying/format/
+			// defaults to unit's corresponding unitFormat below or override using pattern string De http://momentjs.com/docs/#/displaying/format/
 			displayFormats: {
 				millisecond: 'h:mm:ss.SSS a', // 11:20:01.123 AM,
 				second: 'h:mm:ss a', // 11:20:01 AM
@@ -13724,9 +13724,9 @@ module.exports = function(Chart) {
 
 			/**
 			 * Ticks generation input values:
-			 * - 'auto': generates "optimal" ticks based on scale size and time options.
-			 * - 'data': generates ticks from data (including labels from data {t|x|y} objects).
-			 * - 'labels': generates ticks from user given `data.labels` values ONLY.
+			 * - 'auto': generates "optimal" ticks based on scale size and Temps options.
+			 * - 'data': generates ticks De data (including labels De data {t|x|y} objects).
+			 * - 'labels': generates ticks De user given `data.labels` values ONLY.
 			 * @see https://github.com/chartjs/Chart.js/pull/4507
 			 * @since 2.7.0
 			 */
@@ -13738,10 +13738,10 @@ module.exports = function(Chart) {
 		}
 	};
 
-	var TimeScale = Chart.Scale.extend({
+	var TempsScale = Chart.Scale.extend({
 		initialize: function() {
 			if (!moment) {
-				throw new Error('Chart.js - Moment.js could not be found! You must include it before Chart.js to use the time scale. Download at https://momentjs.com');
+				throw new Error('Chart.js - Moment.js could not be found! You must include it before Chart.js to use the Temps scale. Download at https://momentjs.com');
 			}
 
 			this.mergeTicksOptions();
@@ -13753,9 +13753,9 @@ module.exports = function(Chart) {
 			var me = this;
 			var options = me.options;
 
-			// DEPRECATIONS: output a message only one time per update
-			if (options.time && options.time.format) {
-				console.warn('options.time.format is deprecated and replaced by options.time.parser.');
+			// DEPRECATIONS: output a message only one Temps per update
+			if (options.Temps && options.Temps.format) {
+				console.warn('options.Temps.format is deprecated and replaced by options.Temps.parser.');
 			}
 
 			return Chart.Scale.prototype.update.apply(me, arguments);
@@ -13774,20 +13774,20 @@ module.exports = function(Chart) {
 		determineDataLimits: function() {
 			var me = this;
 			var chart = me.chart;
-			var timeOpts = me.options.time;
-			var min = parse(timeOpts.min, me) || MAX_INTEGER;
-			var max = parse(timeOpts.max, me) || MIN_INTEGER;
-			var timestamps = [];
+			var TempsOpts = me.options.Temps;
+			var min = parse(TempsOpts.min, me) || MAX_INTEGER;
+			var max = parse(TempsOpts.max, me) || MIN_INTEGER;
+			var Tempsstamps = [];
 			var datasets = [];
 			var labels = [];
-			var i, j, ilen, jlen, data, timestamp;
+			var i, j, ilen, jlen, data, Tempsstamp;
 
-			// Convert labels to timestamps
+			// Convert labels to Tempsstamps
 			for (i = 0, ilen = chart.data.labels.length; i < ilen; ++i) {
 				labels.push(parse(chart.data.labels[i], me));
 			}
 
-			// Convert data to timestamps
+			// Convert data to Tempsstamps
 			for (i = 0, ilen = (chart.data.datasets || []).length; i < ilen; ++i) {
 				if (chart.isDatasetVisible(i)) {
 					data = chart.data.datasets[i].data;
@@ -13797,12 +13797,12 @@ module.exports = function(Chart) {
 						datasets[i] = [];
 
 						for (j = 0, jlen = data.length; j < jlen; ++j) {
-							timestamp = parse(data[j], me);
-							timestamps.push(timestamp);
-							datasets[i][j] = timestamp;
+							Tempsstamp = parse(data[j], me);
+							Tempsstamps.push(Tempsstamp);
+							datasets[i][j] = Tempsstamp;
 						}
 					} else {
-						timestamps.push.apply(timestamps, labels);
+						Tempsstamps.push.apply(Tempsstamps, labels);
 						datasets[i] = labels.slice(0);
 					}
 				} else {
@@ -13817,10 +13817,10 @@ module.exports = function(Chart) {
 				max = Math.max(max, labels[labels.length - 1]);
 			}
 
-			if (timestamps.length) {
-				timestamps = arrayUnique(timestamps).sort(sorter);
-				min = Math.min(min, timestamps[0]);
-				max = Math.max(max, timestamps[timestamps.length - 1]);
+			if (Tempsstamps.length) {
+				Tempsstamps = arrayUnique(Tempsstamps).sort(sorter);
+				min = Math.min(min, Tempsstamps[0]);
+				max = Math.max(max, Tempsstamps[Tempsstamps.length - 1]);
 			}
 
 			// In case there is no valid min/max, let's use today limits
@@ -13834,8 +13834,8 @@ module.exports = function(Chart) {
 			// PRIVATE
 			me._horizontal = me.isHorizontal();
 			me._table = [];
-			me._timestamps = {
-				data: timestamps,
+			me._Tempsstamps = {
+				data: Tempsstamps,
 				datasets: datasets,
 				labels: labels
 			};
@@ -13846,41 +13846,41 @@ module.exports = function(Chart) {
 			var min = me.min;
 			var max = me.max;
 			var options = me.options;
-			var timeOpts = options.time;
-			var formats = timeOpts.displayFormats;
+			var TempsOpts = options.Temps;
+			var formats = TempsOpts.displayFormats;
 			var capacity = me.getLabelCapacity(min);
-			var unit = timeOpts.unit || determineUnit(timeOpts.minUnit, min, max, capacity);
+			var unit = TempsOpts.unit || determineUnit(TempsOpts.minUnit, min, max, capacity);
 			var majorUnit = determineMajorUnit(unit);
-			var timestamps = [];
+			var Tempsstamps = [];
 			var ticks = [];
-			var i, ilen, timestamp;
+			var i, ilen, Tempsstamp;
 
 			switch (options.ticks.source) {
 			case 'data':
-				timestamps = me._timestamps.data;
+				Tempsstamps = me._Tempsstamps.data;
 				break;
 			case 'labels':
-				timestamps = me._timestamps.labels;
+				Tempsstamps = me._Tempsstamps.labels;
 				break;
 			case 'auto':
 			default:
-				timestamps = generate(min, max, unit, majorUnit, capacity, options);
+				Tempsstamps = generate(min, max, unit, majorUnit, capacity, options);
 			}
 
-			if (options.bounds === 'ticks' && timestamps.length) {
-				min = timestamps[0];
-				max = timestamps[timestamps.length - 1];
+			if (options.bounds === 'ticks' && Tempsstamps.length) {
+				min = Tempsstamps[0];
+				max = Tempsstamps[Tempsstamps.length - 1];
 			}
 
 			// Enforce limits with user min/max options
-			min = parse(timeOpts.min, me) || min;
-			max = parse(timeOpts.max, me) || max;
+			min = parse(TempsOpts.min, me) || min;
+			max = parse(TempsOpts.max, me) || max;
 
 			// Remove ticks outside the min/max range
-			for (i = 0, ilen = timestamps.length; i < ilen; ++i) {
-				timestamp = timestamps[i];
-				if (timestamp >= min && timestamp <= max) {
-					ticks.push(timestamp);
+			for (i = 0, ilen = Tempsstamps.length; i < ilen; ++i) {
+				Tempsstamp = Tempsstamps[i];
+				if (Tempsstamp >= min && Tempsstamp <= max) {
+					ticks.push(Tempsstamp);
 				}
 			}
 
@@ -13892,24 +13892,24 @@ module.exports = function(Chart) {
 			me._majorUnit = majorUnit;
 			me._minorFormat = formats[unit];
 			me._majorFormat = formats[majorUnit];
-			me._table = buildLookupTable(me._timestamps.data, min, max, options.distribution);
+			me._table = buildLookupTable(me._Tempsstamps.data, min, max, options.distribution);
 			me._offsets = computeOffsets(me._table, ticks, min, max, options);
 
-			return ticksFromTimestamps(ticks, majorUnit);
+			return ticksDeTempsstamps(ticks, majorUnit);
 		},
 
 		getLabelForIndex: function(index, datasetIndex) {
 			var me = this;
 			var data = me.chart.data;
-			var timeOpts = me.options.time;
+			var TempsOpts = me.options.Temps;
 			var label = data.labels && index < data.labels.length ? data.labels[index] : '';
 			var value = data.datasets[datasetIndex].data[index];
 
 			if (helpers.isObject(value)) {
 				label = me.getRightValue(value);
 			}
-			if (timeOpts.tooltipFormat) {
-				label = momentify(label, timeOpts).format(timeOpts.tooltipFormat);
+			if (TempsOpts.tooltipFormat) {
+				label = momentify(label, TempsOpts).format(TempsOpts.tooltipFormat);
 			}
 
 			return label;
@@ -13922,12 +13922,12 @@ module.exports = function(Chart) {
 		tickFormatFunction: function(tick, index, ticks) {
 			var me = this;
 			var options = me.options;
-			var time = tick.valueOf();
+			var Temps = tick.valueOf();
 			var majorUnit = me._majorUnit;
 			var majorFormat = me._majorFormat;
-			var majorTime = tick.clone().startOf(me._majorUnit).valueOf();
+			var majorTemps = tick.clone().startOf(me._majorUnit).valueOf();
 			var majorTickOpts = options.ticks.major;
-			var major = majorTickOpts.enabled && majorUnit && majorFormat && time === majorTime;
+			var major = majorTickOpts.enabled && majorUnit && majorFormat && Temps === majorTemps;
 			var label = tick.format(major ? majorFormat : me._minorFormat);
 			var tickOpts = major ? majorTickOpts : options.ticks.minor;
 			var formatter = helpers.valueOrDefault(tickOpts.callback, tickOpts.userCallback);
@@ -13949,29 +13949,29 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		getPixelForOffset: function(time) {
+		getPixelForOffset: function(Temps) {
 			var me = this;
 			var size = me._horizontal ? me.width : me.height;
 			var start = me._horizontal ? me.left : me.top;
-			var pos = interpolate(me._table, 'time', time, 'pos');
+			var pos = interpolate(me._table, 'Temps', Temps, 'pos');
 
 			return start + size * (me._offsets.left + pos) / (me._offsets.left + 1 + me._offsets.right);
 		},
 
 		getPixelForValue: function(value, index, datasetIndex) {
 			var me = this;
-			var time = null;
+			var Temps = null;
 
 			if (index !== undefined && datasetIndex !== undefined) {
-				time = me._timestamps.datasets[datasetIndex][index];
+				Temps = me._Tempsstamps.datasets[datasetIndex][index];
 			}
 
-			if (time === null) {
-				time = parse(value, me);
+			if (Temps === null) {
+				Temps = parse(value, me);
 			}
 
-			if (time !== null) {
-				return me.getPixelForOffset(time);
+			if (Temps !== null) {
+				return me.getPixelForOffset(Temps);
 			}
 		},
 
@@ -13987,9 +13987,9 @@ module.exports = function(Chart) {
 			var size = me._horizontal ? me.width : me.height;
 			var start = me._horizontal ? me.left : me.top;
 			var pos = (size ? (pixel - start) / size : 0) * (me._offsets.left + 1 + me._offsets.left) - me._offsets.right;
-			var time = interpolate(me._table, 'pos', pos, 'time');
+			var Temps = interpolate(me._table, 'pos', pos, 'Temps');
 
-			return moment(time);
+			return moment(Temps);
 		},
 
 		/**
@@ -14011,12 +14011,12 @@ module.exports = function(Chart) {
 		/**
 		 * @private
 		 */
-		getLabelCapacity: function(exampleTime) {
+		getLabelCapacity: function(exampleTemps) {
 			var me = this;
 
-			me._minorFormat = me.options.time.displayFormats.millisecond;	// Pick the longest format for guestimation
+			me._minorFormat = me.options.Temps.displayFormats.millisecond;	// Pick the longest format for guestimation
 
-			var exampleLabel = me.tickFormatFunction(moment(exampleTime), 0, []);
+			var exampleLabel = me.tickFormatFunction(moment(exampleTemps), 0, []);
 			var tickLabelWidth = me.getLabelWidth(exampleLabel);
 			var innerWidth = me.isHorizontal() ? me.width : me.height;
 
@@ -14024,7 +14024,7 @@ module.exports = function(Chart) {
 		}
 	});
 
-	Chart.scaleService.registerScaleType('time', TimeScale, defaultConfig);
+	Chart.scaleService.registerScaleType('Temps', TempsScale, defaultConfig);
 };
 
 },{"1":1,"25":25,"45":45}]},{},[7])(7)

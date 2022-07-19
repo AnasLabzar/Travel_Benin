@@ -15,13 +15,13 @@
 		markersData = {
 			'Marker': [
 			{
-				type_point: 'Museum',
-				name: 'Louvre Museum',
+				type_point: 'Musée',
+				name: 'Louvre Musée',
 				location_latitude: 48.865633, 
 				location_longitude: 2.321236,
 				map_image_url: 'img/thumb_map_single_tour.jpg',
-				rate: 'Superb | 7.5',
-				name_point: 'Louvre Museum',
+				rate: 'Superbe | 7.5',
+				name_point: 'Louvre Musée',
 				get_directions_start_address: '',
 				phone: '+3934245255'
 			}

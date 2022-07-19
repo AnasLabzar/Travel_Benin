@@ -20,7 +20,7 @@
 				location_latitude: 48.865633, 
 				location_longitude: 2.321236,
 				map_image_url: 'img/thumb_map_single_restaurant.jpg',
-				rate: 'Superb | 7.5',
+				rate: 'Superbe | 7.5',
 				name_point: 'Da Alfredo',
 				get_directions_start_address: '',
 				phone: '+3934245255'

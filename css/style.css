@@ -33,7 +33,9 @@
         margin: 0;
         padding: 0
     }
-
+    .isotope-wrapper .col-lg-7{
+        width: 37em;
+    }
     .main-menu ul a,
     .main-menu ul li a {
         position: relative;
@@ -646,13 +648,13 @@ a.btn_1.full-width {
     margin-bottom: 5px
 }
 
-.btn_1.full-width.purchase,
-a.btn_1.full-width.purchase {
+.btn_1.full-width.Achat,
+a.btn_1.full-width.Achat {
     background-color: #32a067
 }
 
-.btn_1.full-width.purchase:hover,
-a.btn_1.full-width.purchase:hover {
+.btn_1.full-width.Achat:hover,
+a.btn_1.full-width.Achat:hover {
     background-color: #ffc107
 }
 
@@ -724,13 +726,13 @@ a.btn_1.outline:focus {
     opacity: 1
 }
 
-.btn_home_align {
+.btn_Acceuil_align {
     text-align: right;
     margin-bottom: 25px
 }
 
 @media (max-width:767px) {
-    .btn_home_align {
+    .btn_Acceuil_align {
         text-align: center;
         margin-bottom: 25px
     }
@@ -1168,7 +1170,7 @@ header.sticky .hamburger-inner::before {
     background-color: rgba(0, 0, 0, .6)
 }
 
-.hero_in.tours:before {
+.hero_in.Circuits:before {
     background: url(../img/hero_in_bg_1.jpg) center center no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1176,7 +1178,7 @@ header.sticky .hamburger-inner::before {
     background-size: cover
 }
 
-.hero_in.tours .wrapper {
+.hero_in.Circuits .wrapper {
     background-color: #000;
     background-color: rgba(0, 0, 0, .6)
 }
@@ -1207,17 +1209,17 @@ header.sticky .hamburger-inner::before {
     background-color: rgba(0, 0, 0, .6)
 }
 
-.hero_in.tours_detail {
+.hero_in.Circuits_detail {
     height: 550px
 }
 
 @media (max-width:575px) {
-    .hero_in.tours_detail {
+    .hero_in.Circuits_detail {
         height: 500px
     }
 }
 
-.hero_in.tours_detail:before {
+.hero_in.Circuits_detail:before {
     background: url(../img/hero_in_tours_detail.jpg) center center no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1225,7 +1227,7 @@ header.sticky .hamburger-inner::before {
     background-size: cover
 }
 
-.hero_in.tours_detail .wrapper {
+.hero_in.Circuits_detail .wrapper {
     background-color: #000;
     background-color: rgba(0, 0, 0, .6)
 }
@@ -2353,9 +2355,13 @@ a#moveDown {
     height: auto
 }
 
+.hero_single .version_2 {
+
+}
+
 @media (max-width:1024px) {
     #hero_video {
-        background: #ccc url(../img/home_section_1.jpg);
+        background: #ccc url(../img/Home_section_1.jpg);
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -2458,10 +2464,7 @@ a#moveDown {
 }
 
 .hero_single.version_2:before {
-    background: url(../img/home_section_1.jpg) center center no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: url(../img/Home_section_1.jpg) center center no-repeat;
     background-size: cover
 }
 
@@ -2957,7 +2960,7 @@ a#moveDown {
 }
 
 @keyframes rotate-x {
-    from {
+    De {
         transform: rotateY(0)
     }
 
@@ -3839,7 +3842,8 @@ a.box_feat h3 {
     min-height: 310px;
     -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1)
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
+    width: 100%;
 }
 
 .box_list a.wish_bt {
@@ -3887,7 +3891,8 @@ a.box_feat h3 {
     margin-bottom: 0;
     overflow: hidden;
     position: relative;
-    min-height: 310px
+    min-height: 310px;
+    width: auto;
 }
 
 @media (max-width:991px) {
@@ -4335,30 +4340,30 @@ a.boxed_list:hover i {
 }
 
 section#description,
-section#reviews {
+section#Commentaires {
     border-bottom: 3px solid #ededed;
     margin-bottom: 45px
 }
 
 section#description h2,
-section#reviews h2 {
+section#Commentaires h2 {
     font-size: 24px;
     font-size: 1.5rem
 }
 
 section#description h3,
-section#reviews h3 {
+section#Commentaires h3 {
     font-size: 21px;
     font-size: 1.3125rem
 }
 
 section#description h4,
-section#reviews h4 {
+section#Commentaires h4 {
     font-size: 18px;
     font-size: 1.125rem
 }
 
-section#reviews {
+section#Commentaires {
     border-bottom: none
 }
 
@@ -4469,15 +4474,15 @@ section#reviews {
     transform: translate(-50%, -50%) scale(1.05)
 }
 
-.reviews-container .progress {
+.Commentaires-container .progress {
     margin-bottom: 12px
 }
 
-.reviews-container .progress-bar {
+.Commentaires-container .progress-bar {
     background-color: #ffc107
 }
 
-.reviews-container .review-box {
+.Commentaires-container .review-box {
     position: relative;
     margin-bottom: 25px;
     padding-left: 100px;
@@ -4485,12 +4490,12 @@ section#reviews {
 }
 
 @media (max-width:767px) {
-    .reviews-container .review-box {
+    .Commentaires-container .review-box {
         padding-left: 0
     }
 }
 
-.reviews-container .rev-thumb {
+.Commentaires-container .rev-thumb {
     position: absolute;
     left: 0;
     top: 0;
@@ -4504,19 +4509,19 @@ section#reviews {
     overflow: hidden
 }
 
-.reviews-container .rev-thumb img {
+.Commentaires-container .rev-thumb img {
     width: 80px;
     height: auto
 }
 
 @media (max-width:767px) {
-    .reviews-container .rev-thumb {
+    .Commentaires-container .rev-thumb {
         position: static;
         margin-bottom: 10px
     }
 }
 
-.reviews-container .rev-content {
+.Commentaires-container .rev-content {
     position: relative;
     padding: 25px 25px 0 25px;
     border: 1px solid #ededed;
@@ -4526,7 +4531,7 @@ section#reviews {
     border-radius: 5px
 }
 
-.reviews-container .rev-info {
+.Commentaires-container .rev-info {
     font-size: 12px;
     font-size: .75rem;
     font-style: italic;
@@ -4642,21 +4647,21 @@ section#reviews {
     transform: scale(1.3)
 }
 
-.booking input {
+.Réservation input {
     font-weight: 500;
     height: 45px
 }
 
-.booking input:focus {
+.Réservation input:focus {
     box-shadow: none;
     border: 1px solid #d2d8dd
 }
 
-.booking select {
+.Réservation select {
     display: none
 }
 
-.booking .panel-dropdown {
+.Réservation .panel-dropdown {
     background-color: #fff;
     font-size: 14px;
     font-size: .875rem;
@@ -4671,37 +4676,37 @@ section#reviews {
 }
 
 @media (max-width:991px) {
-    .booking .panel-dropdown {
+    .Réservation .panel-dropdown {
         height: inherit
     }
 }
 
-.booking .panel-dropdown .panel-dropdown-content {
+.Réservation .panel-dropdown .panel-dropdown-content {
     top: 50px
 }
 
-.booking .nice-select .current {
+.Réservation .nice-select .current {
     font-weight: 500;
     color: #6f787f
 }
 
-.booking .custom-select-form .nice-select.open,
-.booking .custom-select-form .nice-select:active,
-.booking .custom-select-form .nice-select:focus {
+.Réservation .custom-select-form .nice-select.open,
+.Réservation .custom-select-form .nice-select:active,
+.Réservation .custom-select-form .nice-select:focus {
     border-color: #d2d8dd;
     outline: 0;
     box-shadow: none
 }
 
-.booking .custom-select-form select {
+.Réservation .custom-select-form select {
     display: none
 }
 
-.booking .form-group {
+.Réservation .form-group {
     margin: 0 0 10px 0
 }
 
-.booking .form-group i {
+.Réservation .form-group i {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -4722,22 +4727,22 @@ section#reviews {
     color: #999
 }
 
-.booking .form-group i.icon_lock_alt {
+.Réservation .form-group i.icon_lock_alt {
     top: 36px
 }
 
-.booking textarea {
+.Réservation textarea {
     font-weight: 500;
     height: 100px;
     padding-right: 25px
 }
 
-.booking textarea:focus {
+.Réservation textarea:focus {
     border: 1px solid #d2d8dd;
     box-shadow: none
 }
 
-.booking i.loader {
+.Réservation i.loader {
     background-color: transparent;
     color: #fff;
     font-size: 14px;
@@ -4767,14 +4772,14 @@ section#reviews {
     }
 }
 
-ul.cbp_tmtimeline {
+ul.cbp_tmTempsline {
     margin: 45px 0 45px 0;
     padding: 0;
     list-style: none;
     position: relative
 }
 
-.cbp_tmtimeline:before {
+.cbp_tmTempsline:before {
     content: '';
     position: absolute;
     top: 0;
@@ -4785,29 +4790,29 @@ ul.cbp_tmtimeline {
     margin-left: -2px
 }
 
-.cbp_tmtimeline>li {
+.cbp_tmTempsline>li {
     position: relative
 }
 
-.cbp_tmtimeline>li .cbp_tmtime {
+.cbp_tmTempsline>li .cbp_tmTemps {
     display: block;
     width: 23%;
     padding-right: 80px;
     position: absolute
 }
 
-.cbp_tmtimeline>li .cbp_tmtime span {
+.cbp_tmTempsline>li .cbp_tmTemps span {
     display: block;
     text-align: right
 }
 
-.cbp_tmtimeline>li .cbp_tmtime span:first-child {
+.cbp_tmTempsline>li .cbp_tmTemps span:first-child {
     font-size: .9em;
     color: #888;
     margin-bottom: 0
 }
 
-.cbp_tmtimeline>li .cbp_tmtime span:last-child {
+.cbp_tmTempsline>li .cbp_tmTemps span:last-child {
     font-size: 18px;
     font-weight: 500
 }
@@ -4827,7 +4832,7 @@ img.thumb_visit {
     }
 }
 
-.cbp_tmtimeline>li .cbp_tmlabel {
+.cbp_tmTempsline>li .cbp_tmlabel {
     margin: 0 0 15px 25%;
     background: #eef3f7;
     padding: 20px;
@@ -4837,20 +4842,20 @@ img.thumb_visit {
     border-radius: 5px
 }
 
-.cbp_tmtimeline>li .cbp_tmlabel p {
+.cbp_tmTempsline>li .cbp_tmlabel p {
     margin-bottom: 0;
     font-size: 13px;
     font-size: .8125rem
 }
 
-.cbp_tmtimeline>li .cbp_tmlabel h4 {
+.cbp_tmTempsline>li .cbp_tmlabel h4 {
     margin: 0 0 5px 0;
     padding: 0;
     font-size: 16px;
     font-size: 1rem
 }
 
-.cbp_tmtimeline>li .cbp_tmlabel:after {
+.cbp_tmTempsline>li .cbp_tmlabel:after {
     right: 100%;
     border: solid transparent;
     content: " ";
@@ -4863,7 +4868,7 @@ img.thumb_visit {
     top: 15px
 }
 
-.cbp_tmtimeline>li .cbp_tmicon {
+.cbp_tmTempsline>li .cbp_tmicon {
     width: 48px;
     height: 48px;
     font-weight: 500;
@@ -4883,32 +4888,32 @@ img.thumb_visit {
 }
 
 @media screen and (max-width:65.375em) {
-    .cbp_tmtimeline>li .cbp_tmtime span:last-child {
+    .cbp_tmTempsline>li .cbp_tmTemps span:last-child {
         font-size: 1.5em
     }
 }
 
 @media screen and (max-width:47.2em) {
-    .cbp_tmtimeline:before {
+    .cbp_tmTempsline:before {
         display: none
     }
 
-    .cbp_tmtimeline>li .cbp_tmtime {
+    .cbp_tmTempsline>li .cbp_tmTemps {
         width: 100%;
         position: relative;
         padding: 0 0 20px 0
     }
 
-    .cbp_tmtimeline>li .cbp_tmtime span {
+    .cbp_tmTempsline>li .cbp_tmTemps span {
         text-align: left
     }
 
-    .cbp_tmtimeline>li .cbp_tmlabel {
+    .cbp_tmTempsline>li .cbp_tmlabel {
         margin: 0 0 30px 0;
         padding: 1em
     }
 
-    .cbp_tmtimeline>li .cbp_tmlabel:after {
+    .cbp_tmTempsline>li .cbp_tmlabel:after {
         right: auto;
         left: 20px;
         border-right-color: transparent;
@@ -4916,12 +4921,12 @@ img.thumb_visit {
         top: -20px
     }
 
-    .cbp_tmtimeline>li:nth-child(odd) .cbp_tmlabel:after {
+    .cbp_tmTempsline>li:nth-child(odd) .cbp_tmlabel:after {
         border-right-color: transparent;
         border-bottom-color: #eef3f7
     }
 
-    .cbp_tmtimeline>li .cbp_tmicon {
+    .cbp_tmTempsline>li .cbp_tmicon {
         position: relative;
         float: right;
         left: auto;
@@ -5179,7 +5184,7 @@ a.social_bt.linkedin:before {
     color: #945870
 }
 
-#pass-info.goodpass {
+#pass-info.Bienpass {
     border: 1px solid #c4eec8;
     background: #e4ffe4;
     color: #51926e
@@ -5286,7 +5291,7 @@ a.social_bt.linkedin:before {
 }
 
 @-webkit-keyframes fadeIn {
-    from {
+    De {
         opacity: 0
     }
 
@@ -5656,7 +5661,8 @@ span.infobox_rate {
 }
 
 .cart_section {
-    background: #ffc107 url(../img/pattern_1.svg) center bottom repeat-x
+    background: #ffc107 url(../img/pattern_1.jpg) center bottom repeat-x;
+    background-position-y: -123em;
 }
 
 @media (max-width:767px) {
@@ -6915,18 +6921,18 @@ ul.list_feat li p {
     margin-bottom: 10px
 }
 
-.timeline {
+.Tempsline {
     padding-left: 25px;
     border-left: 1px solid #ededed
 }
 
-.timeline h3 {
+.Tempsline h3 {
     font-size: 18px;
     font-size: 1.125rem;
     position: relative
 }
 
-.timeline h3:before {
+.Tempsline h3:before {
     font-family: ElegantIcons;
     content: "\5c";
     position: absolute;
@@ -7006,7 +7012,7 @@ ul.list_feat li p {
 }
 
 .hero_single.version_3:before {
-    background: url(../img/home_section_3.jpg) center center no-repeat;
+    background: url(../img/Acceuil_section_3.jpg) center center no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -8235,6 +8241,14 @@ a.address:hover {
     }
 }
 
+.hero_single{
+    background: url(../img/home_section_1.jpg) center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .hero_single.fullscreen.video_bg video {
     position: absolute;
     top: 0;
@@ -9110,7 +9124,7 @@ ul.bullets li:before {
 }
 
 @keyframes color {
-    from {
+    De {
         opacity: 0
     }
 
@@ -10151,7 +10165,7 @@ ul.plan-features {
 }
 
 @media only screen and (min-width: 992px) {
-    .clock-timepicker-popup {
+    .clock-Tempspicker-popup {
         position: absolute !important;
         left: 0 !important;
         top: 50px !important;

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Porto Travel">
+    <meta name="author" content="Ansonika">
+    <title>Restaurant | Porto Voyage au Bénin</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- GOOGLE WEB FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link href="css/vendors.css" rel="stylesheet">
+
+    <!-- ALTERNATIVE COLORS CSS -->
+    <link href="#" id="colors" rel="stylesheet">
+
+</head>
+
+<body>
+	
+	<div id="page">
+		
+	<header class="header menu_fixed"><div id="logo">
+			<a href="/">
+				<img src="img/logo.svg" width="150" height="36" alt="" class="logo_normal">
+				<img src="img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky">
+			</a>
+		</div>
+		<!-- /top_menu -->
+		<a href="#menu" class="btn_mobile">
+			<div class="hamburger hamburger--spin" id="hamburger">
+				<div class="hamburger-box">
+					<div class="hamburger-inner"></div>
+				</div>
+			</div>
+		</a>
+		<nav id="menu" class="main-menu">
+			<ul>
+				<li><span><a href="/">Acceuil</a></span></li>
+				<li><span><a href="circuits-benin.html">Circuits</a></span>
+				</li>
+				<li><span><a href="restaurants.html">Restaurant</a></span>
+				</li>
+				<li><span><a href="a-propos.html">À propos</a></span></li>
+				<li><span><a href="contacts.html">Contacts</a></span></li>
+			</ul>
+		</nav>
+
+	</header>
+	<!-- /header -->
+	
+	<main>
+		
+		<section class="hero_in restaurants">
+			<div class="wrapper">
+				<div class="container">
+					<h1 class="fadeInUp"><span></span>Benin Restaurant</h1>
+				</div>
+			</div>
+		</section>
+		<!--/hero_in-->
+		
+		<div class="filters_listing sticky_horizontal">
+			<div class="container">
+				<ul class="clearfix">
+					<li>
+						<div class="switch-field">
+							<input type="radio" id="all" name="listing_filter" value="all" checked data-filter="*" class="selected">
+							<label for="all">All</label>
+							<input type="radio" id="popular" name="listing_filter" value="popular" data-filter=".popular">
+							<label for="popular">Popular</label>
+							<input type="radio" id="latest" name="listing_filter" value="latest" data-filter=".latest">
+							<label for="latest">Latest</label>
+						</div>
+					</li>
+					<li>
+						<div class="layout_view">
+							<a href="#0" class="active"><i class="icon-th"></i></a>
+							<a href="restaurants-list-isotope.html"><i class="icon-th-list"></i></a>
+						</div>
+					</li>
+					<li>
+						<a class="btn_map" data-bs-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">Voir sur la carte</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /filters -->
+		
+		<div class="collapse" id="collapseMap">
+			<div id="map" class="map"></div>
+		</div>
+		<!-- End Map -->
+
+		<div class="container margin_60_35">
+			<div class="col-lg-12">
+				<div class="row g-0 custom-search-input-2 inner">
+					<div class="col-lg-4">
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Que recherchez-vous ?...">
+							<i class="icon_search"></i>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Où">
+							<i class="icon_pin_alt"></i>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<select class="wide">
+							<option>Toutes les catégories</option>	
+							<option>Restaurants</option>
+							<option>Bars</option>
+							<option>Bars à café</option>
+						</select>
+					</div>
+					<div class="col-lg-2">
+						<input type="submit" class="btn_search" value="Search">
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /custom-search-input-2 -->
+			
+			<div class="isotope-wrapper">
+			<div class="row">
+				<div class="col-xl-4 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid">
+						<figure><img src="img/Restauration/restaurant_1.webp" class="img-fluid" alt="" width="800" height="533"><div class="read_more">
+							<small>Centre du Bénin</small>
+						</figure>
+						<div class="wrapper">
+							<h3><a href="restaurant/dekounoun.html">Dekounoun Sounnou (Seed Sauce)</a></h3>
+							<p>Cette sauce aux graines est obtenue à partir de noix de palme. Cette sauce est surtout consommée dans le sud du Bénin, notamment dans la capitale, Porto-Novo. Outre le goût et la saveur irrésistibles de cette sauce, elle est très riche en lipides.</p>
+							<span class="price">De <strong>$54</strong> /par personne</span>
+						</div>
+						<ul>
+							<li><i class="ti-eye"></i> 164 views</li>
+							<li><div class="score"><span>Superbe<em>350 Commentaires</em></span><strong>8.9</strong></div></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
+					<div class="box_grid">
+						<figure><img src="img/Restauration/restaurant_2.webp" class="img-fluid" alt="" width="800" height="533"><div class="read_more">
+							<small>Centre du Bénin</small>
+						</figure>
+						<div class="wrapper">
+							<h3><a href="restaurant/gboman.html">Gboman (Large Nightshade)</a></h3>
+							<p>Le gboman est consommé dans tout le Bénin. Il s'agit d'un ragoût préparé avec des légumes. Il dégage une odeur agréable et irrésistible lorsque tous les ingrédients sont combinés.</p>
+							<span class="price">De <strong>$124</strong> /par personne</span>
+						</div>
+						<ul>
+							<li><i class="ti-eye"></i> 164 views</li>
+							<li><div class="score"><span>Bien<em>350 Commentaires</em></span><strong>7.0</strong></div></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid">
+						<figure><img src="img/Restauration/restaurant_3.jpg" style="position: relative; bottom: 10em;" class="img-fluid" alt="" width="800" height="533"><div class="read_more">
+							<small>Centre du Bénin</small>
+						</figure>
+						<div class="wrapper">
+							<h3><a href="restaurant/ninnouwi.html">Ninnouwi (Crincrin Sauce)</a></h3>
+							<p>La sauce crincrin est un plat très populaire au Bénin. Elle est souvent consommée seule, mais dans certains cas, elle complète d'autres plats comme le Dékoun Sounnou.</p>
+							<span class="price">De <strong>$25</strong> /par personne</span>
+						</div>
+						<ul>
+							<li><i class="ti-eye"></i> 164 views</li>
+							<li><div class="score"><span>Bien<em>350 Commentaires</em></span><strong>7.0</strong></div></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
+					<div class="box_grid">
+						<figure><img src="img/Restauration/restaurant_4.webp" class="img-fluid" alt="" width="800" height="533"><div class="read_more">
+							<small>Centre du Bénin</small>
+						</figure>
+						<div class="wrapper">
+							<h3><a href="restaurant/fevi.html">Fevi (Okra Sauce)</a></h3>
+							<p>La sauce gombo, communément appelée Févi en Fon, est classée dans la catégorie des sauces collantes. Elle est beaucoup plus appréciée dans le nord que dans les autres régions du Bénin. La sauce au gombo est généralement accompagnée de pâte blanche, de Piron ou d'igname pilée. </p>
+							<span class="price">De <strong>$45</strong> /par personne</span>
+						</div>
+						<ul>
+							<li><i class="ti-eye"></i> 164 views</li>
+							<li><div class="score"><span>Superbe<em>350 Commentaires</em></span><strong>9.0</strong></div></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /box_grid -->
+			</div>
+			<!-- /row -->
+			</div>
+			<!-- /isotope-wrapper -->
+			
+		</div>
+		<!-- /container -->
+		
+		<div class="bg_color_1">
+			<div class="container margin_60_35">
+				<div class="row">
+					<div class="col-md-4">
+						<a href="#0" class="boxed_list">
+							<i class="pe-7s-help2"></i>
+							<h4>Besoin d'aide ? Contactez nous</h4>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="#0" class="boxed_list">
+							<i class="pe-7s-wallet"></i>
+							<h4>Paiements</h4>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="#0" class="boxed_list">
+							<i class="pe-7s-note2"></i>
+							<h4>Politique d'annulation</h4>
+						</a>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /bg_color_1 -->
+		
+	</main>
+	<!--/main-->
+	
+	<footer>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-5 col-md-12 pe-5">
+					<p><img src="img/logo.svg" width="150" height="36" alt=""></p>
+					<p>À bien des égards, le Bénin est la parfaite introduction à l'Afrique. Un pays de plages
+						immaculées,
+						faune abondante et habitants hospitaliers, voyager à travers le pays est un jeu d'enfant
+						grâce à sa petite taille et son infrastructure avancée.</p>
+				</div>
+				<div class="col-lg-3 col-md-6 ms-lg-auto">
+					<h5>Liens utiles</h5>
+					<ul class="liens">
+						<li><a href="/">Accueil</a></li>
+						<li><a href="a-propos.html">À propos</a></li>
+						<li><a href="circuits-benin.html">Circuits Bénin</a></li>
+						<li><a href="restaurants.html">Restaurant</a></li>
+						<li><a href="contacts.html">Contacts</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h5>Contactez-nous</h5>
+					<ul class="contacts">
+						<li><a href="tel://61280932400"><i class="ti-mobile"></i> +229 955 110 3348</a></li>
+						<li><a href="mailto:info@visiteur-benin.com"><i class="ti-email"></i>
+								info@visiteur-benin.com</a></li>
+					</ul>
+					<div id="newsletter">
+						<h6>Bulletin</h6>
+						<div id="message-newsletter"></div>
+						<form method="post" action="http://www.ansonika.com/panagea/assets/newsletter.php"
+							name="newsletter_form" id="newsletter_form">
+							<div class="form-group">
+								<input type="email" name="email_newsletter" id="email_newsletter"
+									class="form-control" placeholder="Your email">
+								<input type="submit" value="Submit" id="submit-newsletter">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!--/row-->
+			<hr>
+			<div class="row">
+				<div class="col-lg-6">
+					<ul id="footer-selector">
+						<li><img src="img/cards_all.svg" alt=""></li>
+					</ul>
+				</div>
+				<div class="col-lg-6">
+					<ul id="additional_links">
+						<li><a href="#0">Termes et conditions</a></li>
+						<li><a href="#0">Intimité</a></li>
+						<li><span>© Porto Travel</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/footer-->
+	</div>
+	<!-- page -->
+	
+	<!-- Sign In Popup -->
+	<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+		<div class="small-dialog-header">
+			<h3>Sign In</h3>
+		</div>
+		<form>
+			<div class="sign-in-wrapper">
+				<a href="#0" class="social_bt facebook">Login with Facebook</a>
+				<a href="#0" class="social_bt google">Login with Google</a>
+				<div class="divider"><span>Or</span></div>
+				<div class="form-group">
+					<label>Email</label>
+					<input type="email" class="form-control" name="email" id="email">
+					<i class="icon_mail_alt"></i>
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" class="form-control" name="password" id="password" value="">
+					<i class="icon_lock_alt"></i>
+				</div>
+				<div class="clearfix add_bottom_15">
+					<div class="checkboxes float-start">
+						<label class="container_check">Remember me
+						  <input type="checkbox">
+						  <span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="float-end mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
+				</div>
+				<div class="text-center"><input type="submit" value="Log In" class="btn_1 full-width"></div>
+				<div class="text-center">
+					Don’t have an account? <a href="register.html">Sign up</a>
+				</div>
+				<div id="forgot_pw">
+					<div class="form-group">
+						<label>Please confirm login email below</label>
+						<input type="email" class="form-control" name="email_forgot" id="email_forgot">
+						<i class="icon_mail_alt"></i>
+					</div>
+					<p>You will receive an email containing a link allowing you to reset your password to a new preferred one.</p>
+					<div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
+				</div>
+			</div>
+		</form>
+		<!--form -->
+	</div>
+	<!-- /Sign In Popup -->
+	
+	<div id="toTop"></div><!-- Back to top button -->
+	
+	<!-- COMMON SCRIPTS -->
+    <script src="js/common_scripts.js"></script>
+    <script src="js/main.js"></script>
+	<script src="assets/validate.js"></script>
+	
+	<!-- Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6Vck_vRXDPR8ILH8ZLOeGSEz_n4YR0mU"></script>
+	<script src="js/markerclusterer.js"></script>
+	<script src="js/map_restaurants.js"></script>
+	<script src="js/infobox.js"></script>
+	
+	<!-- Masonry Filtering -->
+	<script src="js/isotope.min.js"></script>
+	<script>
+	$(window).on('load', function(){
+	  var $container = $('.isotope-wrapper');
+	  $container.isotope({ itemSelector: '.isotope-item', layoutMode: 'masonry' });
+	});
+
+	$('.filters_listing').on( 'click', 'input', 'change', function(){
+	  var selector = $(this).attr('data-filter');
+	  $('.isotope-wrapper').isotope({ filter: selector });
+	});
+	</script>
+
+	<!-- COLOR SWITCHER  -->
+    <script src="js/switcher.js"></script>
+    
+</body>
+</html>

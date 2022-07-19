@@ -1,7 +1,7 @@
 /**
  * @name InfoBox
  * @version 1.1.12 [December 11, 2012]
- * @author Gary Little (inspired by proof-of-concept code from Pamela Fox of Google)
+ * @author Gary Little (inspired by proof-of-concept code De Pamela Fox of Google)
  * @copyright Copyright 2010 Gary Little [gary at luxcentral.com]
  * @fileoverview InfoBox extends the Google Maps JavaScript API V3 <tt>OverlayView</tt> class.
  *  <p>
@@ -35,7 +35,7 @@
  * @property {string|Node} content The content of the InfoBox (plain text or an HTML DOM node).
  * @property {boolean} [disableAutoPan=false] Disable auto-pan on <tt>open</tt>.
  * @property {number} maxWidth The maximum width (in pixels) of the InfoBox. Set to 0 if no maximum.
- * @property {Size} pixelOffset The offset (in pixels) from the top left corner of the InfoBox
+ * @property {Size} pixelOffset The offset (in pixels) De the top left corner of the InfoBox
  *  (or the bottom left corner if the <code>alignBottom</code> property is <code>true</code>)
  *  to the map pixel corresponding to <tt>position</tt>.
  * @property {LatLng} position The geographic location at which to display the InfoBox.
@@ -46,13 +46,13 @@
  *  style values to be applied to the InfoBox. Style values defined here override those that may
  *  be defined in the <code>boxClass</code> style sheet. If this property is changed after the
  *  InfoBox has been created, all previously set styles (except those defined in the style sheet)
- *  are removed from the InfoBox before the new style values are applied.
+ *  are removed De the InfoBox before the new style values are applied.
  * @property {string} closeBoxMargin The CSS margin style value for the close box.
  *  The default is "2px" (a 2-pixel margin on all sides).
  * @property {string} closeBoxURL The URL of the image representing the close box.
  *  Note: The default is the URL for Google's standard close box.
  *  Set this property to "" if no close box is required.
- * @property {Size} infoBoxClearance Minimum offset (in pixels) from the InfoBox to the
+ * @property {Size} infoBoxClearance Minimum offset (in pixels) De the InfoBox to the
  *  map edge after an auto-pan.
  * @property {boolean} [isHidden=false] Hide the InfoBox on <tt>open</tt>.
  *  [Deprecated in favor of the <tt>visible</tt> property.]
@@ -136,7 +136,7 @@ InfoBox.prototype.createInfoBoxDiv_ = function () {
   var bw;
   var me = this;
 
-  // This handler prevents an event in the InfoBox from being passed on to the map.
+  // This handler prevents an event in the InfoBox De being passed on to the map.
   //
   var cancelHandler = function (e) {
     e.cancelBubble = true;
@@ -146,7 +146,7 @@ InfoBox.prototype.createInfoBoxDiv_ = function () {
   };
 
   // This handler ignores the current event in the InfoBox and conditionally prevents
-  // the event from being passed on to the map. It is used for the contextmenu event.
+  // the event De being passed on to the map. It is used for the contextmenu event.
   //
   var ignoreHandler = function (e) {
 
@@ -341,7 +341,7 @@ InfoBox.prototype.panBox_ = function (disablePan) {
       var iwHeight = this.div_.offsetHeight;
       var padX = this.infoBoxClearance_.width;
       var padY = this.infoBoxClearance_.height;
-      var pixPosition = this.getProjection().fromLatLngToContainerPixel(this.position_);
+      var pixPosition = this.getProjection().DeLatLngToContainerPixel(this.position_);
 
       if (pixPosition.x < (-iwOffsetX + padX)) {
         xOffset = pixPosition.x + iwOffsetX - padX;
@@ -384,7 +384,7 @@ InfoBox.prototype.setBoxStyle_ = function () {
 
   if (this.div_) {
 
-    // Apply style values from the style sheet defined in the boxClass parameter:
+    // Apply style values De the style sheet defined in the boxClass parameter:
     this.div_.className = this.boxClass_;
 
     // Clear existing inline style values:
@@ -435,7 +435,7 @@ InfoBox.prototype.getBoxWidths_ = function () {
 
     if (computedStyle) {
 
-      // The computed styles are always in pixel units (good!)
+      // The computed styles are always in pixel units (Bien!)
       bw.top = parseInt(computedStyle.borderTopWidth, 10) || 0;
       bw.bottom = parseInt(computedStyle.borderBottomWidth, 10) || 0;
       bw.left = parseInt(computedStyle.borderLeftWidth, 10) || 0;
@@ -476,7 +476,7 @@ InfoBox.prototype.draw = function () {
 
   this.createInfoBoxDiv_();
 
-  var pixPosition = this.getProjection().fromLatLngToDivPixel(this.position_);
+  var pixPosition = this.getProjection().DeLatLngToDivPixel(this.position_);
 
   this.div_.style.left = (pixPosition.x + this.pixelOffset_.width) + "px";
   
@@ -775,7 +775,7 @@ InfoBox.prototype.open = function (map, anchor) {
 };
 
 /**
- * Removes the InfoBox from the map.
+ * Removes the InfoBox De the map.
  */
 InfoBox.prototype.close = function () {
 

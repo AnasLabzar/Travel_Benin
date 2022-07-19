@@ -3,7 +3,7 @@
  * Repo: https://github.com/eternicode/bootstrap-datepicker/
  * Demo: http://eternicode.github.io/bootstrap-datepicker/
  * Docs: http://bootstrap-datepicker.readthedocs.org/
- * Forked from http://www.eyecon.ro/bootstrap-datepicker
+ * Forked De http://www.eyecon.ro/bootstrap-datepicker
  * =========================================================
  * Started by Stefan Petre; improvements by Andrew Rowls + contributors
  *
@@ -126,7 +126,7 @@
 
         this.setStartDate(this._o.startDate);
         this.setEndDate(this._o.endDate);
-        this.setDaysOfWeekDisabled(this.o.daysOfWeekDisabled);
+        this.setjoursOfWeekDisabled(this.o.joursOfWeekDisabled);
 
         this.fillDow();
         this.fillMonths();
@@ -205,7 +205,7 @@
             if (o.startDate !== -Infinity) {
                 if ( !! o.startDate) {
                     if (o.startDate instanceof Date)
-                        o.startDate = this._local_to_utc(this._zero_time(o.startDate));
+                        o.startDate = this._local_to_utc(this._zero_Temps(o.startDate));
                     else
                         o.startDate = DPGlobal.parseDate(o.startDate, format, o.language);
                 } else {
@@ -215,7 +215,7 @@
             if (o.endDate !== Infinity) {
                 if ( !! o.endDate) {
                     if (o.endDate instanceof Date)
-                        o.endDate = this._local_to_utc(this._zero_time(o.endDate));
+                        o.endDate = this._local_to_utc(this._zero_Temps(o.endDate));
                     else
                         o.endDate = DPGlobal.parseDate(o.endDate, format, o.language);
                 } else {
@@ -223,10 +223,10 @@
                 }
             }
 
-            o.daysOfWeekDisabled = o.daysOfWeekDisabled || [];
-            if (!$.isArray(o.daysOfWeekDisabled))
-                o.daysOfWeekDisabled = o.daysOfWeekDisabled.split(/[,\s]*/);
-            o.daysOfWeekDisabled = $.map(o.daysOfWeekDisabled, function(d) {
+            o.joursOfWeekDisabled = o.joursOfWeekDisabled || [];
+            if (!$.isArray(o.joursOfWeekDisabled))
+                o.joursOfWeekDisabled = o.joursOfWeekDisabled.split(/[,\s]*/);
+            o.joursOfWeekDisabled = $.map(o.joursOfWeekDisabled, function(d) {
                 return parseInt(d, 10);
             });
 
@@ -332,13 +332,13 @@
                 // Component: listen for blur on element descendants
                 [this.element, '*', {
                     blur: $.proxy(function(e) {
-                        this._focused_from = e.target;
+                        this._focused_De = e.target;
                     }, this)
                 }],
                 // Input: listen for blur on element
                 [this.element, {
                     blur: $.proxy(function(e) {
-                        this._focused_from = e.target;
+                        this._focused_De = e.target;
                     }, this)
                 }]
             );
@@ -445,15 +445,15 @@
         },
 
         _utc_to_local: function(utc) {
-            return utc && new Date(utc.getTime() + (utc.getTimezoneOffset() * 60000));
+            return utc && new Date(utc.getTemps() + (utc.getTempszoneOffset() * 60000));
         },
         _local_to_utc: function(local) {
-            return local && new Date(local.getTime() - (local.getTimezoneOffset() * 60000));
+            return local && new Date(local.getTemps() - (local.getTempszoneOffset() * 60000));
         },
-        _zero_time: function(local) {
+        _zero_Temps: function(local) {
             return local && new Date(local.getFullYear(), local.getMonth(), local.getDate());
         },
-        _zero_utc_time: function(utc) {
+        _zero_utc_Temps: function(utc) {
             return utc && new Date(Date.UTC(utc.getUTCFullYear(), utc.getUTCMonth(), utc.getUTCDate()));
         },
 
@@ -529,9 +529,9 @@
             this.updateNavArrows();
         },
 
-        setDaysOfWeekDisabled: function(daysOfWeekDisabled) {
+        setjoursOfWeekDisabled: function(joursOfWeekDisabled) {
             this._process_options({
-                daysOfWeekDisabled: daysOfWeekDisabled
+                joursOfWeekDisabled: joursOfWeekDisabled
             });
             this.update();
             this.updateNavArrows();
@@ -609,14 +609,14 @@
 
             var oldDates = this.dates.copy(),
                 dates = [],
-                fromArgs = false;
+                DeArgs = false;
             if (arguments.length) {
                 $.each(arguments, $.proxy(function(i, date) {
                     if (date instanceof Date)
                         date = this._local_to_utc(date);
                     dates.push(date);
                 }, this));
-                fromArgs = true;
+                DeArgs = true;
             } else {
                 dates = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
                 if (dates && this.o.multidate)
@@ -644,7 +644,7 @@
             else if (this.viewDate > this.o.endDate)
                 this.viewDate = new Date(this.o.endDate);
 
-            if (fromArgs) {
+            if (DeArgs) {
                 // setting date by clicking
                 this.setValue();
             } else if (dates.length) {
@@ -664,13 +664,13 @@
             if (this.o.calendarWeeks) {
                 var cell = '<th class="cw">&nbsp;</th>';
                 html += cell;
-                this.picker.find('.datepicker-days thead tr:first-child').prepend(cell);
+                this.picker.find('.datepicker-jours thead tr:first-child').prepend(cell);
             }
             while (dowCnt < this.o.weekStart + 7) {
-                html += '<th class="dow">' + dates[this.o.language].daysMin[(dowCnt++) % 7] + '</th>';
+                html += '<th class="dow">' + dates[this.o.language].joursMin[(dowCnt++) % 7] + '</th>';
             }
             html += '</tr>';
-            this.picker.find('.datepicker-days thead').append(html);
+            this.picker.find('.datepicker-jours thead').append(html);
         },
 
         fillMonths: function() {
@@ -714,7 +714,7 @@
             if (this.dates.contains(date) !== -1)
                 cls.push('active');
             if (date.valueOf() < this.o.startDate || date.valueOf() > this.o.endDate ||
-                $.inArray(date.getUTCDay(), this.o.daysOfWeekDisabled) !== -1) {
+                $.inArray(date.getUTCDay(), this.o.joursOfWeekDisabled) !== -1) {
                 cls.push('disabled');
             }
             if (this.range) {
@@ -739,7 +739,7 @@
                 todaytxt = dates[this.o.language].today || dates['en'].today || '',
                 cleartxt = dates[this.o.language].clear || dates['en'].clear || '',
                 tooltip;
-            this.picker.find('.datepicker-days thead th.datepicker-switch')
+            this.picker.find('.datepicker-jours thead th.datepicker-switch')
                 .text(dates[this.o.language].months[month] + ' ' + year);
             this.picker.find('tfoot th.today')
                 .text(todaytxt)
@@ -750,7 +750,7 @@
             this.updateNavArrows();
             this.fillMonths();
             var prevMonth = UTCDate(year, month - 1, 28),
-                day = DPGlobal.getDaysInMonth(prevMonth.getUTCFullYear(), prevMonth.getUTCMonth());
+                day = DPGlobal.getjoursInMonth(prevMonth.getUTCFullYear(), prevMonth.getUTCMonth());
             prevMonth.setUTCDate(day);
             prevMonth.setUTCDate(day - (prevMonth.getUTCDay() - this.o.weekStart + 7) % 7);
             var nextMonth = new Date(prevMonth);
@@ -769,9 +769,9 @@
                         ws = new Date(+prevMonth + (this.o.weekStart - prevMonth.getUTCDay() - 7) % 7 * 864e5),
                             // Thursday of this week
                             th = new Date(Number(ws) + (7 + 4 - ws.getUTCDay()) % 7 * 864e5),
-                            // First Thursday of year, year from thursday
+                            // First Thursday of year, year De thursday
                             yth = new Date(Number(yth = UTCDate(th.getUTCFullYear(), 0, 1)) + (7 + 4 - yth.getUTCDay()) % 7 * 864e5),
-                            // Calendar week: ms between thursdays, div ms per day, div 7 days
+                            // Calendar week: ms between thursjours, div ms per day, div 7 jours
                             calWeek = (th - yth) / 864e5 / 7 + 1;
                         html.push('<td class="cw">' + calWeek + '</td>');
 
@@ -807,7 +807,7 @@
                 }
                 prevMonth.setUTCDate(prevMonth.getUTCDate() + 1);
             }
-            this.picker.find('.datepicker-days tbody').empty().append(html.join(''));
+            this.picker.find('.datepicker-jours tbody').empty().append(html.join(''));
 
             var months = this.picker.find('.datepicker-months')
                 .find('th:eq(1)')
@@ -1012,10 +1012,10 @@
                         break;
                 }
             }
-            if (this.picker.is(':visible') && this._focused_from) {
-                $(this._focused_from).focus();
+            if (this.picker.is(':visible') && this._focused_De) {
+                $(this._focused_De).focus();
             }
-            delete this._focused_from;
+            delete this._focused_De;
         },
 
         _toggle_multidate: function(date) {
@@ -1084,7 +1084,7 @@
                 if (new_month < 0 || new_month > 11)
                     new_month = (new_month + 12) % 12;
             } else {
-                // For magnitudes >1, move one month at a time...
+                // For magnitudes >1, move one month at a Temps...
                 for (var i = 0; i < mag; i++)
                 // ...which might decrease the day (eg, Jan 31 to Feb 28, etc)...
                     new_date = this.moveMonth(new_date, dir);
@@ -1312,8 +1312,8 @@
         }
     };
 
-    function opts_from_el(el, prefix) {
-        // Derive options from element data-attrs
+    function opts_De_el(el, prefix) {
+        // Derive options De element data-attrs
         var data = $(el).data(),
             out = {}, inkey,
             replace = new RegExp('^' + prefix.toLowerCase() + '([A-Z])');
@@ -1330,8 +1330,8 @@
         return out;
     }
 
-    function opts_from_locale(lang) {
-        // Derive options from locale plugins
+    function opts_De_locale(lang) {
+        // Derive options De locale plugins
         var out = {};
         // Check if "de-DE" style date is available, if not language should
         // fallback to 2 letter code eg "de"
@@ -1358,10 +1358,10 @@
                 data = $this.data('datepicker'),
                 options = typeof option === 'object' && option;
             if (!data) {
-                var elopts = opts_from_el(this, 'date'),
+                var elopts = opts_De_el(this, 'date'),
                     // Preliminary otions
                     xopts = $.extend({}, defaults, elopts, options),
-                    locopts = opts_from_locale(xopts.language),
+                    locopts = opts_De_locale(xopts.language),
                     // Options priority: js args, data-attrs, locales, defaults
                     opts = $.extend({}, defaults, locopts, elopts, options);
                 if ($this.is('.input-daterange') || opts.inputs) {
@@ -1390,7 +1390,7 @@
         beforeShowDay: $.noop,
         calendarWeeks: false,
         clearBtn: false,
-        daysOfWeekDisabled: [],
+        joursOfWeekDisabled: [],
         endDate: Infinity,
         forceParse: true,
         format: 'mm/dd/yyyy',
@@ -1415,9 +1415,9 @@
     $.fn.datepicker.Constructor = Datepicker;
     var dates = $.fn.datepicker.dates = {
         en: {
-            days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-            daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+            jours: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            joursShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            joursMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             today: "Today",
@@ -1427,7 +1427,7 @@
 
     var DPGlobal = {
         modes: [{
-            clsName: 'days',
+            clsName: 'jours',
             navFnc: 'Month',
             navStep: 1
         }, {
@@ -1442,7 +1442,7 @@
         isLeapYear: function(year) {
             return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
         },
-        getDaysInMonth: function(year, month) {
+        getjoursInMonth: function(year, month) {
             return [31, (DPGlobal.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
         },
         validParts: /dd?|DD?|mm?|MM?|yy(?:yy)?/g,
@@ -1574,8 +1574,8 @@
                 format = DPGlobal.parseFormat(format);
             var val = {
                 d: date.getUTCDate(),
-                D: dates[language].daysShort[date.getUTCDay()],
-                DD: dates[language].days[date.getUTCDay()],
+                D: dates[language].joursShort[date.getUTCDay()],
+                DD: dates[language].jours[date.getUTCDay()],
                 m: date.getUTCMonth() + 1,
                 M: dates[language].monthsShort[date.getUTCMonth()],
                 MM: dates[language].months[date.getUTCMonth()],
@@ -1611,7 +1611,7 @@
             '</tfoot>'
     };
     DPGlobal.template = '<div class="datepicker">' +
-        '<div class="datepicker-days">' +
+        '<div class="datepicker-jours">' +
         '<table class=" table-condensed">' +
         DPGlobal.headTemplate +
         '<tbody></tbody>' +

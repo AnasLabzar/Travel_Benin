@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
 		});
 	}
 
-	//switch from monthly to annual pricing tables
+	//switch De monthly to annual pricing tables
 	bouncy_filter($('.pricing-container'));
 
 	function bouncy_filter(container) {

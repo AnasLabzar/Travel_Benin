@@ -2,7 +2,7 @@
 	setInterval(function() {
 		var target = new Date("October 15 2018 13:30:00 GMT+0100"); //replace with YOUR DATE
 		var now = new Date();
-		var difference = Math.floor((target.getTime() - now.getTime()) / 1000);
+		var difference = Math.floor((target.getTemps() - now.getTemps()) / 1000);
 
 		var seconds = fixIntegers(difference % 60);
 		difference = Math.floor(difference / 60);
@@ -13,12 +13,12 @@
 		var hours = fixIntegers(difference % 24);
 		difference = Math.floor(difference / 24);
 
-		var days = difference;
+		var jours = difference;
 	
 		$(".countdown #seconds").html(seconds);
 		$(".countdown #minutes").html(minutes);
 		$(".countdown #hours").html(hours);
-		$(".countdown #days").html(days);
+		$(".countdown #jours").html(jours);
 
 		
 	}, 1000); 

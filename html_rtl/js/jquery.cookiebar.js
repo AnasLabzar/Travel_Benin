@@ -30,14 +30,14 @@
 			declineButton: false, //Set to true to show decline/disable button
 			declineText: 'Disable Cookies', //Text on decline/disable button
 			declineFunction: function(cookieValue){if(cookieValue=='enabled' || cookieValue=='accepted') window.location = window.location.href;}, //Function to run after decline
-			policyButton: true, //Set to true to show Privacy Policy button
-			policyText: 'Privacy Policy', //Text on Privacy Policy button
-			policyURL: '#', //URL of Privacy Policy
+			policyButton: true, //Set to true to show Intimité Policy button
+			policyText: 'Intimité Policy', //Text on Intimité Policy button
+			policyURL: '#', //URL of Intimité Policy
 			autoEnable: true, //Set to true for cookies to be accepted automatically. Banner still shows
 			acceptOnContinue: false, //Set to true to accept cookies when visitor moves to another page
 			acceptOnScroll: false, //Set to true to accept cookies when visitor scrolls X pixels up or down
 			acceptAnyClick: false, //Set to true to accept cookies when visitor clicks anywhere on the page
-			expireDays: 365, //Number of days for cookieBar cookie to be stored for
+			expirejours: 365, //Number of jours for cookieBar cookie to be stored for
 			renewOnVisit: false, //Renew the cookie upon revisit to website
 			forceShow: false, //Force cookieBar to show regardless of user cookie preference
 			effect: 'slide', //Options: slide, fade, hide
@@ -46,14 +46,14 @@
 			fixed: false, //Set to true to add the class "fixed" to the cookie bar. Default CSS should fix the position
 			bottom: true, //Force CSS when fixed, so bar appears at bottom of website
 			zindex: '', //Can be set in CSS, although some may prefer to set here
-			domain: String(window.location.hostname), //Location of privacy policy
-			referrer: String(document.referrer) //Where visitor has come from
+			domain: String(window.location.hostname), //Location of Intimité policy
+			referrer: String(document.referrer) //Where visitor has come De
 		};
 		var options = $.extend(defaults,options);
 		
 		//Sets expiration date for cookie
 		var expireDate = new Date();
-		expireDate.setTime(expireDate.getTime()+(options.expireDays*86400000));
+		expireDate.setTemps(expireDate.getTemps()+(options.expirejours*86400000));
 		expireDate = expireDate.toGMTString();
 		
 		var cookieEntry = 'cb-enabled={value}; expires='+expireDate+'; path=/';
@@ -109,7 +109,7 @@
 			}else{
 				var declineButton = '';
 			}
-			//Sets up privacy policy button if required
+			//Sets up Intimité policy button if required
 			if(options.policyButton){
 				var policyButton = '<a href="'+options.policyURL+'" class="cb-policy">'+options.policyText+'</a>';
 			}else{
@@ -158,7 +158,7 @@
 			};
 			var cookieDecline = function(){
 				var deleteDate = new Date();
-				deleteDate.setTime(deleteDate.getTime()-(864000000));
+				deleteDate.setTemps(deleteDate.getTemps()-(864000000));
 				deleteDate = deleteDate.toGMTString();
 				aCookies=document.cookie.split('; ');
 				for (i=0;i<aCookies.length;i++){

@@ -110,9 +110,9 @@
 
 
 
-/* Timers */
+/* Tempsrs */
 
-.ls-bar-timer {
+.ls-bar-Tempsr {
 	position: absolute;
 	width: 0;
 	height: 2px;
@@ -124,7 +124,7 @@
 	top: 0;
 }
 
-.ls-circle-timer {
+.ls-circle-Tempsr {
 	width: 16px;
 	height: 16px;
 	position: absolute;

@@ -45,7 +45,7 @@
 
 		geocoder.geocode( { 'address': center}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
-				//In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+				//In this case it creates a marker, but you can get the lat and lng De the location.LatLng
 				map.setCenter(results[0].geometry.location);
 			}
 			else{

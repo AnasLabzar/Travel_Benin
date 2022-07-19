@@ -26,7 +26,7 @@ var myLineChart = new Chart(ctx, {
   options: {
     scales: {
       xAxes: [{
-        time: {
+        Temps: {
           unit: 'date'
         },
         gridLines: {
@@ -68,7 +68,7 @@ var myLineChart = new Chart(ctx, {
   options: {
     scales: {
       xAxes: [{
-        time: {
+        Temps: {
           unit: 'month'
         },
         gridLines: {

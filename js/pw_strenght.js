@@ -29,11 +29,11 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 		}	
 		else if(MediumPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('goodpass').html("Good! (Enter uppercase letter to make strong)");
+			passwordsInfo.removeClass().addClass('Bienpass').html("Bien! (Enter uppercase letter to make strong)");
 		}
 		else if(WeakPass.test(password1.val()))
     	{
-			passwordsInfo.removeClass().addClass('stillweakpass').html("Still Weak! (Enter digits to make good password)");
+			passwordsInfo.removeClass().addClass('stillweakpass').html("Still Weak! (Enter digits to make Bien password)");
     	}
 		else
 		{
@@ -47,7 +47,7 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 		{
 			passwordsInfo.removeClass().addClass('weakpass').html("Passwords do not match!");	
 		}else{
-			passwordsInfo.removeClass().addClass('goodpass').html("Passwords match!");	
+			passwordsInfo.removeClass().addClass('Bienpass').html("Passwords match!");	
 		}
 			
 	});

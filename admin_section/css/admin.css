@@ -608,20 +608,20 @@ ul.buttons li {
   margin-right: 3px;
 }
 
-ul.booking_list {
+ul.Réservation_list {
   list-style: none;
   margin: 15px 0 25px 0;
   padding: 0;
 }
-ul.booking_list li {
+ul.Réservation_list li {
   margin-bottom: 5px;
 }
-ul.booking_list li strong {
+ul.Réservation_list li strong {
   width: 150px;
   display: inline-block;
 }
 @media (max-width: 767px) {
-  ul.booking_list li strong {
+  ul.Réservation_list li strong {
     /* For less than 767px */
     display: block;
     width: auto;
